@@ -20,10 +20,10 @@ function App() {
   return (
     <div className="App">
       {/* Ẩn Navbar nếu ở trang CoverPage (khi deploy lên gh-pages thì path là /FlagGo/) */}
-      {location.pathname !== "/FlagGo/" && <Navbar />}
+      {location.pathname !== "/FlagGo" && <Navbar />}
 
       <Routes>
-        <Route path="/FlagGo/" element={<CoverPage onExplore={handleExplore} />} />
+        <Route path="/FlagGo" element={<CoverPage onExplore={handleExplore} />} />
         <Route path="/homepage" element={<HomePage />} />
         <Route path="/information" element={<InformationPage />} />
         <Route path="/history" element={<HistoryPage />} />
