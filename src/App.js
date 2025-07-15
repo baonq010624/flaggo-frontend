@@ -6,8 +6,8 @@ import "./App.css";
 import HistoryPage from "./components/HistoryPage";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import HeritagePage from './components/HeritagePage';
-import HeritageDetail from './components/HeritageDetail';
+import HeritagePage from "./components/HeritagePage";
+import HeritageDetail from "./components/HeritageDetail";
 
 function App() {
   const navigate = useNavigate();
@@ -19,38 +19,26 @@ function App() {
 
   return (
     <div className="App">
-      {location.pathname !== "/FlagGo" && <Navbar />}
+      {/* Ẩn Navbar nếu ở trang CoverPage (khi deploy lên gh-pages thì path là /FlagGo/) */}
+      {location.pathname !== "/FlagGo/" && <Navbar />}
 
       <Routes>
-        <Route path="/FlagGo" element={<CoverPage onExplore={handleExplore} />} />
+        <Route path="/FlagGo/" element={<CoverPage onExplore={handleExplore} />} />
         <Route path="/homepage" element={<HomePage />} />
         <Route path="/information" element={<InformationPage />} />
         <Route path="/history" element={<HistoryPage />} />
         <Route path="/heritage" element={<HeritagePage />} />
         <Route path="/heritage/:id" element={<HeritageDetail />} />
-
         <Route
           path="/festival"
           element={
-            <div style={{ padding: "40px" }}>
-              Festival Page - đang phát triển
-            </div>
+            <div style={{ padding: "40px" }}>Festival Page - đang phát triển</div>
           }
         />
         <Route
           path="/cuisine"
           element={
-            <div style={{ padding: "40px" }}>
-              Cuisine Page - đang phát triển
-            </div>
-          }
-        />
-        <Route
-          path="/heritage"
-          element={
-            <div style={{ padding: "40px" }}>
-              Heritage Page - đang phát triển
-            </div>
+            <div style={{ padding: "40px" }}>Cuisine Page - đang phát triển</div>
           }
         />
         <Route
