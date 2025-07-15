@@ -1,0 +1,103 @@
+/* CoverPage.css */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html, .cover-page {
+  width: 100%;
+  height: 100vh;
+
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.cover-page {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cover-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Quan trọng để ảnh full mà không bị méo */
+  z-index: 1;
+}
+
+.cover-text {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: white;
+  padding: 0 20px;
+}
+
+.cover-text h1 {
+  font-size: 4.5rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+  text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.7);
+  animation: fadeInSlide 1.5s ease-out forwards;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  letter-spacing: 3px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 1rem;
+  animation: fadeInSlide 1s ease-out forwards;
+}
+
+
+.explore-button {
+  padding: 16px 32px;
+  font-size: 1.5rem;
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 2px solid white;
+  color: white;
+  cursor: pointer;
+  border-radius: 999px; /* Bo tròn mạnh hơn */
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.explore-button:hover {
+  background-color: rgba(255, 255, 255, 0.4);
+  transform: scale(1.05);
+}
+
+.cover-image {
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+  pointer-events: none; /* tránh hover trùng */
+}
+
+.cover-image.active {
+  opacity: 1;
+  z-index: 2;
+}
+
+@keyframes fadeInSlide {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

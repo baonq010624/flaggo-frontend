@@ -1,0 +1,67 @@
+.navbar {
+  width: 100%;
+  background-color: #fff;
+  color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 60px;
+  border-bottom: 1px solid #ddd;
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.logo-image {
+  height: 48px;
+  object-fit: contain;
+}
+
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 40px;
+  justify-content: center;
+  flex: 1;
+}
+
+.nav-links li a {
+  position: relative;
+  text-decoration: none;
+  color: #000;
+  font-weight: 500;
+  padding: 8px 0;
+  transition: color 0.3s ease;
+}
+
+.nav-links li a::before,
+.nav-links li a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: #000;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.nav-links li a::before {
+  top: 0;
+  transform-origin: left;
+}
+
+.nav-links li a::after {
+  bottom: 0;
+  transform-origin: right;
+}
+
+.nav-links li a:hover::before,
+.nav-links li a:hover::after,
+.nav-links li a.active::before,
+.nav-links li a.active::after {
+  transform: scaleX(1);
+}

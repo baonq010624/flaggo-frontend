@@ -1,0 +1,149 @@
+/* HomePage.css – theme trắng đen hiện đại */
+
+.homepage {
+  background-color: #fff;
+  color: #000;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background-color: #000;
+  color: #fff;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+}
+
+.nav-links li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-links li a:hover {
+  color: #aaa;
+}
+
+/* Search Box */
+.search input {
+  padding: 8px 12px;
+  border-radius: 20px;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+}
+
+/* Layout for map and info preview */
+.map-layout {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 80px;
+  padding: 60px 40px;
+}
+
+/* Map placeholder on the left */
+.map-region {
+  width: 400px;
+  height: 400px;
+  background-color: #f0f0f0;
+  border: 2px dashed #aaa;
+  border-radius: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+  transition: transform 0.3s;
+}
+.map-region:hover {
+  transform: scale(1.03);
+}
+.province-area {
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+/* Info preview on the right */
+.info-preview {
+  width: 520px;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.5s ease;
+  pointer-events: none;
+  background: #fdfdfd;
+  border-radius: 16px;
+  padding: 30px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+.info-preview.show {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+.info-preview img {
+  width: 100%;
+  height: auto;
+  border-radius: 14px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  margin-bottom: 22px;
+}
+.info-preview h4 {
+  font-size: 2rem;
+  margin-bottom: 12px;
+  color: #111;
+}
+.info-preview p {
+  font-size: 1.1rem;
+  color: #444;
+  margin-bottom: 10px;
+}
+.info-preview .desc {
+  margin-top: 14px;
+  color: #666;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* Footer */
+.footer {
+  background-color: #111;
+  color: #eee;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  padding: 40px 20px;
+  margin-top: 80px;
+}
+.footer-section {
+  flex: 1 1 250px;
+  padding: 10px 20px;
+}
+.footer-section h4 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+.footer-section p {
+  margin: 6px 0;
+  color: #ccc;
+  font-size: 0.95rem;
+}

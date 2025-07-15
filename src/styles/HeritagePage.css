@@ -1,0 +1,109 @@
+.heritage-list-page {
+  padding: 60px 5% 100px;
+  background-color: #fff;
+}
+
+.heritage-list-title {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 40px;
+}
+
+.heritage-list-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.heritage-card {
+  background: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.heritage-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+}
+
+.heritage-card-img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.heritage-card-info {
+  padding: 16px 20px;
+  flex: 1;
+}
+
+.heritage-card-info h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #222;
+}
+
+.heritage-card-info p {
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.5;
+}
+
+
+/* DETAIL PAGE */
+
+.heritage-detail-page {
+  padding: 60px 5% 100px;
+  max-width: 900px;
+  margin: 0 auto;
+  background-color: #fff;
+}
+
+.heritage-detail-page h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.heritage-detail-img {
+  width: 100%;
+  max-height: 480px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  margin-bottom: 30px;
+}
+
+.heritage-detail-text {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #333;
+  text-align: justify;
+}
+
+/* Responsive fallback if needed */
+@media (max-width: 600px) {
+  .heritage-card-img {
+    height: 180px;
+  }
+
+  .heritage-card-info h3 {
+    font-size: 1.05rem;
+  }
+
+  .heritage-detail-page h2 {
+    font-size: 1.6rem;
+  }
+
+  .heritage-detail-img {
+    max-height: 320px;
+  }
+}

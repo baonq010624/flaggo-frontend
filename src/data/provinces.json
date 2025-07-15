@@ -1,0 +1,112 @@
+[
+  {
+    "id": "0",
+    "name": "Tỉnh A",
+    "area": "3,500 km²",
+    "areaNote": "Tỉnh có địa hình đa dạng, bao gồm cả đồng bằng và rừng núi.",
+    "population": "1,200,000 người",
+    "populationNote": "Mật độ dân số phân bố đồng đều giữa các huyện.",
+    "oldProvinces": [
+      { "id": "1", "name": "Tỉnh cũ 1" },
+      { "id": "2", "name": "Tỉnh cũ 2" },
+      { "id": "3", "name": "Tỉnh cũ 3" }
+    ],
+    "cultureTabs": {
+      "vanhoa": {
+        "title": "Văn hóa",
+        "image": "VanHoa.jpg",
+        "description": "Văn hóa của tỉnh A mang đậm bản sắc dân tộc, thể hiện qua các lễ hội truyền thống, kiến trúc đình chùa và phong tục dân gian đặc trưng..."
+      },
+      "amthuc": {
+        "title": "Ẩm thực",
+        "image": "KhuDuLich1.jpg",
+        "description": "Ẩm thực nổi bật với các món đặc sản như bánh xèo, cá kho tộ và nhiều món ăn đường phố hấp dẫn mang hương vị miền Tây sông nước..."
+      },
+      "lehoi": {
+        "title": "Lễ hội",
+        "image": "KhuDuLich2.jpg",
+        "description": "Các lễ hội như lễ đua ghe ngo, hội đình làng... là dịp người dân tụ hội, vui chơi, thể hiện nét đẹp tinh thần đoàn kết và tín ngưỡng..."
+      }
+    },
+    "tourism": [
+      {
+        "title": "Khu du lịch 1",
+        "image": "KhuDuLich1.jpg",
+        "description": "Khu du lịch 1 nổi bật với khung cảnh thiên nhiên xanh mát, thích hợp cho nghỉ dưỡng và dã ngoại cuối tuần..."
+      },
+      {
+        "title": "Khu du lịch 2",
+        "image": "KhuDuLich2.jpg",
+        "description": "Khu du lịch 2 hấp dẫn bởi các hoạt động giải trí đa dạng như chèo thuyền, zipline và cắm trại..."
+      }
+    ],
+    "history": [
+      {
+        "title": "Di tích lịch sử 1",
+        "image": "DiTich1.jpg",
+        "description": "Di tích 1 là nơi lưu giữ nhiều hiện vật quý giá và ghi dấu những trang sử hào hùng của dân tộc..."
+      },
+      {
+        "title": "Di tích lịch sử 2",
+        "image": "DiTich2.jpg",
+        "description": "Di tích 2 từng là trung tâm văn hóa cổ, với kiến trúc độc đáo mang đậm phong cách Á Đông..."
+      }
+    ]
+  },
+  {
+    "id": "1",
+    "name": "Tỉnh cũ 1",
+    "area": "1,000 km²",
+    "areaNote": "Thông tin placeholder.",
+    "population": "500,000 người",
+    "populationNote": "Thông tin placeholder.",
+    "oldProvinces": [],
+    "cultureTabs": {
+      "vanhoa": {
+        "title": "Văn hóa",
+        "image": "VanHoa.jpg",
+        "description": "Thông tin placeholder cho văn hóa."
+      },
+      "amthuc": {
+        "title": "Ẩm thực",
+        "image": "KhuDuLich1.jpg",
+        "description": "Thông tin placeholder cho ẩm thực."
+      },
+      "lehoi": {
+        "title": "Lễ hội",
+        "image": "KhuDuLich2.jpg",
+        "description": "Thông tin placeholder cho lễ hội."
+      }
+    },
+    "tourism": [],
+    "history": []
+  },
+  {
+    "id": "2",
+    "name": "Tỉnh cũ 2",
+    "area": "1,200 km²",
+    "areaNote": "Thông tin placeholder.",
+    "population": "700,000 người",
+    "populationNote": "Thông tin placeholder.",
+    "oldProvinces": [],
+    "cultureTabs": {
+      "vanhoa": {
+        "title": "Văn hóa",
+        "image": "VanHoa.jpg",
+        "description": "Thông tin placeholder cho văn hóa."
+      },
+      "amthuc": {
+        "title": "Ẩm thực",
+        "image": "KhuDuLich1.jpg",
+        "description": "Thông tin placeholder cho ẩm thực."
+      },
+      "lehoi": {
+        "title": "Lễ hội",
+        "image": "KhuDuLich2.jpg",
+        "description": "Thông tin placeholder cho lễ hội."
+      }
+    },
+    "tourism": [],
+    "history": []
+  }
+]

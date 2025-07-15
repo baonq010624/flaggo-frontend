@@ -1,0 +1,135 @@
+/* --- Background với lớp overlay mờ --- */
+.history-page-bg {
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.85)),
+              url("../images/DiTich1.jpg") no-repeat center center fixed;
+  background-size: cover;
+  min-height: 100vh;
+  padding: 60px 0;
+}
+
+/* --- Container tổng --- */
+.history-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 40px 5%;
+  font-family: 'Segoe UI', sans-serif;
+  color: #f5f5f5;
+}
+
+/* --- Tiêu đề chính --- */
+.history-title {
+  font-size: 3rem;
+  font-weight: 800;
+  text-align: center;
+  color: #fff4d1;
+  margin-bottom: 10px;
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.4);
+}
+
+.history-subtitle {
+  font-size: 1.2rem;
+  color: #ddd;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+/* --- Timeline layout --- */
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* --- Card lịch sử --- */
+.timeline-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+  transition: all 0.4s ease;
+  cursor: pointer;
+}
+
+.timeline-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+}
+
+/* --- Header: Tiêu đề & ảnh --- */
+.timeline-header {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+}
+
+.timeline-info {
+  flex: 1;
+}
+
+.timeline-info h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #fff;
+}
+
+.period-time {
+  font-size: 0.95rem;
+  color: #ccc;
+}
+
+/* --- Ảnh nhỏ bên phải --- */
+.timeline-image {
+  width: 120px;
+  height: auto;
+  margin-left: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+}
+
+/* --- Nội dung chi tiết --- */
+.timeline-details {
+  padding: 20px 28px;
+  background: rgba(255, 255, 255, 0.03);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  animation: slideIn 0.5s ease forwards;
+}
+
+.timeline-details p {
+  font-size: 1rem;
+  color: #eee;
+  margin-bottom: 12px;
+  line-height: 1.7;
+}
+
+.timeline-details ul {
+  padding-left: 20px;
+}
+
+.timeline-details li {
+  color: #f2f2f2;
+  margin-bottom: 6px;
+  position: relative;
+}
+.timeline-details li::before {
+  content: "•";
+  color: #ffd700;
+  position: absolute;
+  left: -16px;
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+/* --- Animation --- */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
