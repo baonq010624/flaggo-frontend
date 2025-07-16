@@ -8,6 +8,8 @@ import HeritagePage from "./components/HeritagePage";
 import HeritageDetail from "./components/HeritageDetail";
 import FestivalPage from "./components/FestivalPage";
 import FestivalDetail from "./components/FestivalDetail";
+import CuisinePage from "./components/CuisinePage";
+import CuisineDetail from "./components/CuisineDetail";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import "./App.css";
@@ -34,6 +36,8 @@ function App() {
         <Route path="/heritage/:id" element={<HeritageDetail />} />
         <Route path="/festival" element={<FestivalPage />} />
         <Route path="/festival/:id" element={<FestivalDetail />} />
+        <Route path="/cuisine" element={<CuisinePage />} />
+        <Route path="/cuisine/:id" element={<CuisineDetail />} />
         <Route path="/cuisine" element={<div style={{ padding: "40px" }}>Cuisine Page - đang phát triển</div>} />
         <Route path="/personalize" element={<div style={{ padding: "40px" }}>Cá nhân hóa - đang phát triển</div>} />
         <Route path="/shop" element={<div style={{ padding: "40px" }}>Mua sắm - đang phát triển</div>} />
