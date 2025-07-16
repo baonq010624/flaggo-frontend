@@ -104,7 +104,7 @@ const InformationPage = () => {
                   sông Cửu Long.
                 </p>
                 <div className="see-more">
-                  <a href="/festival">Xem thêm →</a>
+                  <a href="/FlagGo#/festival">Xem thêm →</a>
                 </div>
               </div>
               <div className="culture-image">
