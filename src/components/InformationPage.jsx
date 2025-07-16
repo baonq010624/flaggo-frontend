@@ -132,7 +132,7 @@ const InformationPage = () => {
                   không thể quên mỗi lần ghé thăm.
                 </p>
                 <div className="see-more">
-                  <a href="/cuisine">Xem thêm →</a>
+                  <a href="/FlagGo#/cuisine">Xem thêm →</a>
                 </div>
               </div>
               <div className="culture-image">
