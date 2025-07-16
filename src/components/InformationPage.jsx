@@ -173,7 +173,7 @@ const InformationPage = () => {
           </div>
         </div>
         <div className="heritage-more">
-          <a href="/heritage">Xem thêm →</a>
+          <a href="/FlagGo#/heritage">Xem thêm →</a>
         </div>
       </div>
     </div>
