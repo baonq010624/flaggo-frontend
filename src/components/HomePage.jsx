@@ -39,23 +39,6 @@ const HomePage = () => {
           </p>
         </div>
       </main>
-
-      {/* Footer */}
-      <footer className="footer">
-        <div className="footer-section">
-          <h4>Về chúng tôi</h4>
-          <p>Dự án FlagGo nhằm số hóa trải nghiệm du lịch miền Nam Việt Nam.</p>
-        </div>
-        <div className="footer-section">
-          <h4>Liên hệ</h4>
-          <p>Email: support@flaggo.vn</p>
-          <p>Hotline: 0123 456 789</p>
-        </div>
-        <div className="footer-section">
-          <h4>Bản quyền</h4>
-          <p>© 2025 FlagGo. Mọi quyền được bảo lưu.</p>
-        </div>
-      </footer>
     </div>
   );
 };

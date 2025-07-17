@@ -33,7 +33,7 @@ const CoverPage = ({ onExplore }) => {
       ))}
       <div className="cover-text">
   <p className="subtitle">FlagGo</p>
-  <h1>Việt Nam Trong Tầm Tay Bạn</h1>
+  <h1>Cần Thơ trong tôi</h1>
   <button onClick={onExplore} className="explore-button">
     Bắt đầu khám phá
   </button>
