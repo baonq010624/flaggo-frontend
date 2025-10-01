@@ -1,0 +1,213 @@
+/* src/styles/RegisterPage.css */
+.login-page-root {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  background: #1e1e1e; /* nền xám placeholder */
+  color: white;
+}
+
+/* Threads background */
+.login-page-root::before,
+.login-page-root::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: repeating-linear-gradient(
+    115deg,
+    rgba(255, 255, 255, 0.05) 0px,
+    rgba(255, 255, 255, 0.05) 2px,
+    transparent 2px,
+    transparent 80px
+  );
+  animation: threadsMove 12s linear infinite;
+  z-index: 0;
+}
+
+.login-page-root::after {
+  animation-duration: 18s;
+  opacity: 0.5;
+  transform: rotate(180deg);
+}
+
+@keyframes threadsMove {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-200px);
+  }
+}
+
+/* Container */
+.login-container {
+  display: flex;
+  max-width: 1200px;
+  width: 90%;
+  z-index: 1; /* nổi lên trên threads */
+  position: relative;
+}
+
+/* Left panel */
+.login-left {
+  flex: 1;
+  padding: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: white;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 40px;
+}
+
+.brand-logo {
+  width: 60px;
+  height: 60px;
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-name {
+  font-size: 2.2rem;
+  font-weight: bold;
+}
+
+.brand-sub {
+  font-size: 1rem;
+  opacity: 0.8;
+}
+
+.hero-title {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.hero-desc {
+  font-size: 1.1rem;
+  opacity: 0.85;
+}
+
+/* Right panel */
+.login-right {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-form {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(16px);
+  border-radius: 20px;
+  padding: 50px 40px;
+  width: 100%;
+  max-width: 420px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+}
+
+.form-title {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 30px;
+  color: #fff;
+}
+
+.input-row {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.input-row label {
+  margin-bottom: 6px;
+  font-size: 1rem;
+  opacity: 0.9;
+}
+
+.input-row input {
+  padding: 14px 16px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+}
+
+.input-row input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.form-actions {
+  margin-top: 25px;
+  display: flex;
+  justify-content: center;
+}
+
+.login-btn {
+  width: 100%;
+  padding: 14px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  background: linear-gradient(135deg, #ff7f50, #ff4b2b);
+  color: #fff;
+  transition: transform 0.2s, opacity 0.2s;
+}
+
+.login-btn:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
+
+.small-note {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.small-note a {
+  color: #ff7f50;
+  text-decoration: none;
+}
+
+.small-note a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 980px) {
+  .login-container {
+    flex-direction: column;
+    text-align: center;
+  }
+  .login-left {
+    padding: 30px;
+    align-items: center;
+  }
+  .login-form {
+    margin-top: 30px;
+  }
+}
+
+/* Ẩn footer riêng cho trang login */
+.login-page-root + footer {
+  display: none !important;
+}

@@ -1,0 +1,393 @@
+[
+  {
+    "id": "hnk-cho-noi-cai-rang",
+    "name": "Chợ nổi Cái Răng",
+    "shortDesc": "Chợ nổi đặc trưng miền Tây họp sớm trên sông, cảnh sinh hoạt tấp nập.",
+    "description": "Chợ nổi Cái Răng là một trong những chợ nổi lớn và nổi tiếng nhất miền Tây, là nét văn hóa đặc trưng của người dân Cần Thơ. Chợ họp từ rất sớm, khi trời còn chưa sáng hẳn; hàng trăm chiếc ghe, tàu lớn nhỏ đã tấp nập tụ về trao đổi mua bán. Điểm độc đáo là thay vì treo biển hiệu, các ghe thuyền lại “tiếp thị” hàng hóa của mình bằng cách treo chúng lên một cây sào tre gọi là “cây bẹo” ngay trước mũi ghe.",
+    "image": "VanHoa.jpg",
+    "location": "Quận Cái Răng",
+    "category": "Chợ & Thương mại",
+    "hours": "04:00 - 08:00 (đông nhất 05:00 - 07:00)",
+    "price": "Không có vé; thuê tàu 200.000 - 800.000 VND",
+    "transport": "Từ Bến Ninh Kiều thuê thuyền/ghe để ra chợ",
+    "highlights": [
+      "Thưởng thức bữa sáng đặc trưng ngay trên ghe (hủ tiếu, bún riêu, cà phê).",
+      "Mua sắm đặc sản nông sản, trái cây tươi từ các ghe hàng.",
+      "Ngắm bình minh trên sông Hậu, quan sát hoạt động thương mại sông nước."
+    ]
+  },
+  {
+    "id": "hnk-lo-hu-tieu-sau-hoai",
+    "name": "Lò hủ tiếu Sáu Hoài",
+    "shortDesc": "Lò hủ tiếu truyền thống gần chợ nổi, trải nghiệm làm và thưởng thức hủ tiếu.",
+    "description": "Lò hủ tiếu Sáu Hoài giữ gìn phương pháp làm hủ tiếu truyền thống: tráng bột, phơi khô, cắt sợi. Du khách có thể tham quan quy trình làm, thử làm cùng nghệ nhân và thưởng thức hủ tiếu nóng hổi. Món pizza hủ tiếu là trải nghiệm ẩm thực độc đáo của nơi này.",
+    "image": "VanHoa.jpg",
+    "location": "Gần chợ nổi Cái Răng",
+    "category": "Ẩm thực & Làng nghề",
+    "hours": "07:00 - 17:00",
+    "price": "Miễn phí tham quan; trải nghiệm và ăn uống 20.000 - 50.000 VND",
+    "transport": "Khoảng 6 km từ trung tâm, taxi/xe máy hoặc kết hợp thuyền",
+    "highlights": [
+      "Thử làm hủ tiếu thủ công cùng nghệ nhân.",
+      "Thưởng thức món pizza hủ tiếu độc đáo.",
+      "Mua hủ tiếu thành phẩm mang về, nghe câu chuyện nghề truyền thống."
+    ]
+  },
+  {
+    "id": "hnk-vuon-trai-cay-vam-xang",
+    "name": "Vườn trái cây Vàm Xáng",
+    "shortDesc": "Vườn trái cây mùa vụ, hái tại vườn và đi ghe len rạch.",
+    "description": "Vườn trái cây Vàm Xáng là điểm xanh mát với các loại trái cây theo mùa như chôm chôm, dâu Hạ Châu, măng cụt, sầu riêng. Du khách có thể hái trái, thưởng thức tại chỗ, chèo xuồng qua rạch nhỏ và tìm hiểu đời sống miệt vườn.",
+    "image": "VanHoa.jpg",
+    "location": "Ngoại ô Cần Thơ (~10 km)",
+    "category": "Sinh thái & Vườn trái cây",
+    "hours": "07:00 - 17:00",
+    "price": "Khoảng 50.000 - 100.000 VND/người (tùy dịch vụ)",
+    "transport": "Taxi / xe máy / xe buýt",
+    "highlights": [
+      "Tự tay hái trái cây và thưởng thức tại vườn.",
+      "Đi ghe tham quan các con rạch nhỏ.",
+      "Thưởng thức các món ăn dân dã, chụp ảnh check-in với vườn cây trĩu quả."
+    ]
+  },
+  {
+    "id": "hnk-dinh-binh-thuy",
+    "name": "Đình Bình Thủy",
+    "shortDesc": "Đình cổ từ thế kỷ XIX, kết hợp kiến trúc Nam Bộ và ảnh hưởng Pháp.",
+    "description": "Đình Bình Thủy được xây dựng từ thế kỷ XIX, là một trong những ngôi đình cổ nhất và đẹp nhất miền Tây. Nơi đây vừa là chốn thờ tự linh thiêng vừa mang giá trị kiến trúc và văn hóa truyền thống, tổ chức nhiều lễ hội đặc sắc hằng năm.",
+    "image": "VanHoa.jpg",
+    "location": "Quận Bình Thủy",
+    "category": "Di tích lịch sử & Tín ngưỡng",
+    "hours": "07:00 - 17:00",
+    "price": "Miễn phí",
+    "transport": "Taxi / xe máy (khoảng 5 km từ trung tâm)",
+    "highlights": [
+      "Kiến trúc kết hợp Á – Âu độc đáo.",
+      "Tìm hiểu lịch sử, tín ngưỡng địa phương.",
+      "Tham gia lễ hội truyền thống (rằm tháng 4, tháng Chạp)."
+    ]
+  },
+  {
+    "id": "hnk-nha-co-binh-thuy",
+    "name": "Nhà cổ Bình Thủy",
+    "shortDesc": "Nhà cổ của dòng họ Dương, kiến trúc Pháp cổ hơn 150 năm.",
+    "description": "Ngôi nhà cổ Bình Thủy (Nhà Dương) là ví dụ điển hình của nhà cổ Nam bộ, giữ được nhiều chi tiết kiến trúc Pháp và hiện vật quý. Nhiều bộ phim đã lấy nơi này làm bối cảnh, tạo nên sức hút cho du khách yêu lịch sử và điện ảnh.",
+    "image": "VanHoa.jpg",
+    "location": "Quận Bình Thủy",
+    "category": "Di tích lịch sử & Kiến trúc",
+    "hours": "07:00 - 17:00",
+    "price": "Khoảng 15.000 - 20.000 VND/người",
+    "transport": "Taxi / xe máy (khoảng 5 km từ trung tâm)",
+    "highlights": [
+      "Chiêm ngưỡng kiến trúc Pháp cổ tinh xảo.",
+      "Tìm hiểu lịch sử gia tộc Dương.",
+      "Check-in các góc phim nổi tiếng, khám phá hiện vật cổ."
+    ]
+  },
+  {
+    "id": "hnk-ben-ninh-kieu",
+    "name": "Bến Ninh Kiều",
+    "shortDesc": "Biểu tượng ven sông Hậu, công viên và bến tàu trung tâm.",
+    "description": "Bến Ninh Kiều là biểu tượng của TP. Cần Thơ, nằm bên bờ sông Hậu thơ mộng. Ban ngày khu vực thích hợp ngắm cảnh sông nước; về đêm, du thuyền và ánh đèn tạo nên khung cảnh lung linh. Du khách có thể đi bộ, ăn vặt, hoặc lên du thuyền nghe đờn ca tài tử.",
+    "image": "VanHoa.jpg",
+    "location": "Quận Ninh Kiều",
+    "category": "Công viên & Bến",
+    "hours": "Cả ngày (đẹp nhất buổi tối)",
+    "price": "Miễn phí",
+    "transport": "Nằm trung tâm, đi bộ/taxi/xe máy",
+    "highlights": [
+      "Du thuyền trên sông Hậu, thưởng thức đờn ca tài tử.",
+      "Ngắm cầu đi bộ Ninh Kiều về đêm.",
+      "Ẩm thực ven bến, chụp ảnh với tượng và biểu tượng thành phố."
+    ]
+  },
+  {
+    "id": "hnk-con-son",
+    "name": "Cồn Sơn",
+    "shortDesc": "Cồn nhỏ giữa sông Hậu, du lịch cộng đồng, vườn cây và nghề truyền thống.",
+    "description": "Cồn Sơn nổi tiếng với mô hình du lịch cộng đồng, vườn trái cây, làm bánh dân gian, và biểu diễn cá lóc bay. Người dân tổ chức nhiều hoạt động du lịch thân thiện, đem lại trải nghiệm đời sống miệt vườn chân chất.",
+    "image": "VanHoa.jpg",
+    "location": "Cồn Sơn (giữa sông Hậu)",
+    "category": "Du lịch cộng đồng & Sinh thái",
+    "hours": "Mở cửa cả ngày",
+    "price": "Tour 150.000 - 300.000 VND/người (tùy dịch vụ)",
+    "transport": "Tàu từ bến phà Cô Bắc (quận Bình Thủy)",
+    "highlights": [
+      "Xem cá lóc bay biểu diễn.",
+      "Làm bánh dân gian và trải nghiệm văn hóa địa phương.",
+      "Tham quan vườn cây, thưởng thức trái cây tươi."
+    ]
+  },
+  {
+    "id": "hnk-den-hung-can-tho",
+    "name": "Đền Hùng Cần Thơ",
+    "shortDesc": "Đền tưởng nhớ Vua Hùng, không gian trang nghiêm.",
+    "description": "Đền Hùng Cần Thơ tưởng nhớ các Vua Hùng, kiến trúc kết hợp hiện đại và truyền thống, nơi tổ chức lễ Giỗ Tổ Hùng Vương và là điểm dâng hương của người dân.",
+    "image": "VanHoa.jpg",
+    "location": "Ngoại ô Cần Thơ (~10 km)",
+    "category": "Tôn giáo & Văn hóa",
+    "hours": "07:00 - 17:00",
+    "price": "Miễn phí",
+    "transport": "Taxi / xe máy",
+    "highlights": [
+      "Chiêm bái, dâng hương tưởng nhớ Vua Hùng.",
+      "Tham quan kiến trúc kết hợp truyền thống – hiện đại.",
+      "Không gian tâm linh trang nghiêm."
+    ]
+  },
+  {
+    "id": "hnk-lang-mo-bui-huu-nghia",
+    "name": "Lăng mộ Bùi Hữu Nghĩa",
+    "shortDesc": "Lăng mộ nhà thơ – nhà soạn tuồng Bùi Hữu Nghĩa, không gian yên tĩnh.",
+    "description": "Lăng mộ Bùi Hữu Nghĩa lưu giữ nhiều câu chuyện lịch sử và giai thoại về danh nhân văn hóa Nam Bộ. Khu lăng có kiến trúc giản dị, phù hợp cho việc tưởng niệm và tìm hiểu lịch sử văn học địa phương.",
+    "image": "VanHoa.jpg",
+    "location": "Quận Bình Thủy",
+    "category": "Di tích lịch sử",
+    "hours": "07:00 - 17:00",
+    "price": "Miễn phí",
+    "transport": "Taxi / xe máy",
+    "highlights": [
+      "Tham quan khu lăng mộ cổ kính.",
+      "Tìm hiểu cuộc đời và tác phẩm của Bùi Hữu Nghĩa.",
+      "Không gian yên bình phù hợp chụp ảnh và thư giãn."
+    ]
+  },
+  {
+    "id": "hnk-khu-du-lich-ong-de",
+    "name": "Khu du lịch Ông Đề",
+    "shortDesc": "Khu vui chơi miệt vườn với trò chơi dân gian và trải nghiệm sông nước.",
+    "description": "Khu du lịch Ông Đề mang đến nhiều hoạt động: đi cầu khỉ, tát mương bắt cá, chèo xuồng, vườn trái cây và ẩm thực miệt vườn. Phù hợp cho gia đình và nhóm bạn trẻ muốn trải nghiệm và giải trí.",
+    "image": "VanHoa.jpg",
+    "location": "Ngoại ô Cần Thơ (~7 km)",
+    "category": "Giải trí & Sinh thái",
+    "hours": "07:00 - 17:00",
+    "price": "50.000 - 70.000 VND/người",
+    "transport": "Taxi / xe máy",
+    "highlights": [
+      "Tham gia trò chơi dân gian, tát mương bắt cá.",
+      "Dạo vườn trái cây và thưởng thức ẩm thực địa phương.",
+      "Check-in cầu khỉ, cảnh quê sông nước."
+    ]
+  },
+  {
+    "id": "hnk-nha-tu-kham-lon",
+    "name": "Nhà tù Khám Lớn Cần Thơ",
+    "shortDesc": "Di tích lịch sử thời thực dân Pháp, trưng bày hiện vật đấu tranh.",
+    "description": "Nhà tù Khám Lớn là di tích lịch sử quan trọng, nơi tái hiện đời sống tù nhân và những sự kiện đấu tranh dưới thời thực dân. Nơi đây phù hợp cho mục đích giáo dục lịch sử và tưởng nhớ các anh hùng.",
+    "image": "VanHoa.jpg",
+    "location": "Trung tâm TP. Cần Thơ",
+    "category": "Bảo tàng & Di tích",
+    "hours": "08:00 - 17:00",
+    "price": "Miễn phí",
+    "transport": "Đi bộ hoặc taxi",
+    "highlights": [
+      "Tìm hiểu lịch sử đấu tranh của dân tộc.",
+      "Xem hiện vật và mô phỏng cảnh sinh hoạt trong tù.",
+      "Không gian tĩnh lặng, trang nghiêm."
+    ]
+  },
+  {
+    "id": "hnk-bao-tang-can-tho",
+    "name": "Bảo tàng Cần Thơ",
+    "shortDesc": "Bảo tàng lớn vùng Đồng bằng sông Cửu Long, nhiều khu chuyên đề.",
+    "description": "Bảo tàng Cần Thơ trưng bày hiện vật khảo cổ, lịch sử đấu tranh và văn hóa các dân tộc Kinh, Hoa, Khmer. Các khu chuyên đề giúp người xem nắm bắt lịch sử phát triển và đời sống địa phương.",
+    "image": "VanHoa.jpg",
+    "location": "Gần trung tâm TP. Cần Thơ",
+    "category": "Bảo tàng",
+    "hours": "08:00 - 11:00, 13:30 - 17:00 (T2, T3, T4, T7, CN)",
+    "price": "Miễn phí",
+    "transport": "Đi bộ hoặc taxi",
+    "highlights": [
+      "Khám phá bộ sưu tập khảo cổ và hiện vật văn hóa.",
+      "Tìm hiểu đời sống của các cộng đồng Kinh, Hoa, Khmer.",
+      "Xem mô hình nhà cổ và phương tiện sông nước truyền thống."
+    ]
+  },
+  {
+    "id": "hnk-chua-ong",
+    "name": "Chùa Ông (Quảng Triệu Hội Quán)",
+    "shortDesc": "Chùa người Hoa cổ kính tại Bến Ninh Kiều, kiến trúc tinh xảo.",
+    "description": "Chùa Ông là ngôi chùa cổ của cộng đồng người Hoa tại Cần Thơ, nổi bật với kiến trúc, họa tiết điêu khắc và sắc đỏ rực rỡ đặc trưng. Chùa là nơi sinh hoạt văn hóa, tín ngưỡng và thu hút du khách tham quan.",
+    "image": "VanHoa.jpg",
+    "location": "Bến Ninh Kiều, Quận Ninh Kiều",
+    "category": "Tôn giáo & Văn hóa",
+    "hours": "06:00 - 19:00",
+    "price": "Miễn phí",
+    "transport": "Nằm tại trung tâm, dễ đi bộ",
+    "highlights": [
+      "Chiêm ngưỡng kiến trúc và phù điêu tinh xảo.",
+      "Cảm nhận không khí linh thiêng, hương trầm.",
+      "Check-in với màu sắc đỏ rực và lồng đèn."
+    ]
+  },
+  {
+    "id": "hnk-chua-doi",
+    "name": "Chùa Dơi (Mahatup)",
+    "shortDesc": "Chùa Khmer nổi tiếng với đàn dơi và kiến trúc độc đáo.",
+    "description": "Chùa Dơi là một trong những ngôi chùa Khmer nổi bật tại Cần Thơ, nổi tiếng với đàn dơi treo trên cây và các họa tiết kiến trúc Khmer. Đây là điểm sinh hoạt tôn giáo và du lịch văn hoá đặc sắc.",
+    "image": "VanHoa.jpg",
+    "location": "Ngoại thành Cần Thơ",
+    "category": "Tôn giáo & Văn hóa",
+    "hours": "07:00 - 17:00",
+    "price": "Khoảng 20.000 VND/người",
+    "transport": "Taxi / xe máy",
+    "highlights": [
+      "Quan sát hàng ngàn con dơi treo trên cây.",
+      "Chiêm ngưỡng kiến trúc Khmer và phù điêu.",
+      "Tìm hiểu văn hóa cộng đồng Khmer."
+    ]
+  },
+  {
+    "id": "hnk-chua-som-rong",
+    "name": "Wat Pătum Wôngsa Som Rông (Chùa Som Rông)",
+    "shortDesc": "Chùa Khmer hiện đại với tượng Phật nằm khổng lồ dài 63m.",
+    "description": "Chùa Som Rông có bức tượng Phật nằm lớn và kiến trúc kết hợp truyền thống – hiện đại, là điểm check-in và tham quan nổi bật của cộng đồng Khmer.",
+    "image": "VanHoa.jpg",
+    "location": "Đường Tôn Đức Thắng",
+    "category": "Tôn giáo & Kiến trúc",
+    "hours": "07:00 - 17:00",
+    "price": "Miễn phí",
+    "transport": "Taxi / xe máy",
+    "highlights": [
+      "Check-in với tượng Phật nằm khổng lồ.",
+      "Chiêm ngưỡng kiến trúc chính điện và tháp.",
+      "Kết hợp tham quan văn hóa Khmer."
+    ]
+  },
+  {
+    "id": "hnk-chua-sa-lon",
+    "name": "Chùa Sà Lôn (Chùa Chén Kiểu)",
+    "shortDesc": "Chùa dùng mảnh chén/dĩa khảm lên tường tạo nghệ thuật độc đáo.",
+    "description": "Chùa Sà Lôn nổi bật với việc sử dụng mảnh sành, sứ, chén, dĩa để khảm lên tường tạo họa tiết mỹ thuật rất riêng biệt, phản ánh tính sáng tạo và triết lý sống địa phương.",
+    "image": "VanHoa.jpg",
+    "location": "Phường Mỹ Xuyên",
+    "category": "Tôn giáo & Nghệ thuật",
+    "hours": "07:00 - 17:00",
+    "price": "Miễn phí",
+    "transport": "Xe máy / ô tô",
+    "highlights": [
+      "Chiêm ngưỡng kỹ thuật khảm mảnh sành độc đáo.",
+      "Tìm hiểu ý nghĩa nghệ thuật và câu chuyện địa phương.",
+      "Check-in nhiều góc chụp đẹp."
+    ]
+  },
+  {
+    "id": "hnk-bao-tang-soc-trang",
+    "name": "Bảo tàng Sóc Trăng",
+    "shortDesc": "Bảo tàng trưng bày văn hóa Kinh, Khmer, Hoa tại Sóc Trăng (tham khảo).",
+    "description": "Bảo tàng Sóc Trăng lưu giữ nhiều hiện vật quý về lịch sử và văn hóa của ba dân tộc chính; không gian trưng bày khoa học, giúp khám phá đa dạng văn hóa khu vực miền Tây.",
+    "image": "VanHoa.jpg",
+    "location": "Sóc Trăng (tham khảo, vùng lân cận)",
+    "category": "Bảo tàng",
+    "hours": "07:30 - 11:00, 13:30 - 17:00 (T2 - T6)",
+    "price": "Miễn phí",
+    "transport": "Taxi / xe máy",
+    "highlights": [
+      "Khám phá hiện vật văn hóa Kinh, Khmer, Hoa.",
+      "Tìm hiểu nghề thủ công và trang phục truyền thống.",
+      "Thích hợp nghiên cứu, tham quan học thuật."
+    ]
+  },
+  {
+    "id": "hnk-vuon-co-tan-long",
+    "name": "Vườn Cò Tân Long",
+    "shortDesc": "Khu sinh thái với hàng vạn cò tập trung, cảnh hoàng hôn ngoạn mục.",
+    "description": "Vườn Cò Tân Long là nơi cư trú của hàng nghìn con cò và các loài chim; thời điểm hoàng hôn là hấp dẫn nhất để xem cò bay về tổ. Du khách có thể đi thuyền luồn lách qua rặng dừa nước và thưởng thức hải sản địa phương.",
+    "image": "VanHoa.jpg",
+    "location": "Xã Tân Long, TP. Cần Thơ",
+    "category": "Sinh thái & Vườn cò",
+    "hours": "08:00 - 17:00",
+    "price": "Khoảng 15.000 VND/người",
+    "transport": "Xe máy / ô tô",
+    "highlights": [
+      "Ngắm hàng ngàn con cò bay về tổ lúc hoàng hôn.",
+      "Đi thuyền qua rặng dừa nước, thưởng thức ẩm thực dân dã.",
+      "Quan sát và chụp ảnh thiên nhiên hoang dã."
+    ]
+  },
+  {
+    "id": "hnk-khu-bao-ton-lung-ngoc-hoang",
+    "name": "Khu Bảo tồn Thiên nhiên Lung Ngọc Hoàng",
+    "shortDesc": "Khu rừng tràm đa dạng sinh học — 'lá phổi xanh' của vùng Đồng bằng sông Cửu Long.",
+    "description": "Lung Ngọc Hoàng là khu bảo tồn đất ngập nước với rừng tràm, kênh rạch chằng chịt và nhiều loài động thực vật. Trải nghiệm đi xuồng ba lá giữa rừng tràm và quan sát chim là điểm nhấn không thể bỏ qua.",
+    "image": "VanHoa.jpg",
+    "location": "Khu bảo tồn Lung Ngọc Hoàng",
+    "category": "Bảo tồn thiên nhiên & Sinh thái",
+    "hours": "08:30 - 17:00",
+    "price": "Khoảng 30.000 - 50.000 VND/người",
+    "transport": "Xe máy / ô tô từ TP. Vị Thanh hoặc Cần Thơ",
+    "highlights": [
+      "Đi xuồng len lỏi trong rừng tràm, ngắm chim trời.",
+      "Check-in giữa không gian xanh hoang sơ.",
+      "Khám phá hệ sinh thái đa dạng."
+    ]
+  },
+  {
+    "id": "hnk-rung-tram-vi-thuy",
+    "name": "Rừng tràm Vị Thủy",
+    "shortDesc": "Rừng tràm yên bình, phù hợp cho đi xuồng và chụp ảnh thiên nhiên.",
+    "description": "Rừng tràm Vị Thủy là nơi để tận hưởng thiên nhiên, đi xuồng xuyên rừng tràm và chụp ảnh phong cảnh xanh mướt. Đây là điểm lý tưởng cho người thích yên tĩnh và gần gũi thiên nhiên.",
+    "image": "VanHoa.jpg",
+    "location": "Vị Thủy (khu rừng tràm)",
+    "category": "Sinh thái",
+    "hours": "Cả ngày",
+    "price": "Khoảng 20.000 - 30.000 VND/người",
+    "transport": "Xe máy / ô tô",
+    "highlights": [
+      "Trải nghiệm đi xuồng xuyên rừng tràm.",
+      "Không khí trong lành và góc chụp ảnh tuyệt vời.",
+      "Thích hợp cho tham quan nhẹ và nghỉ ngơi."
+    ]
+  },
+  {
+    "id": "hnk-vuon-oi-co-diep",
+    "name": "Vườn ổi Cô Điệp",
+    "shortDesc": "Vườn ổi miệt vườn, hái và mua ổi tại chỗ.",
+    "description": "Vườn ổi Cô Điệp là điểm miệt vườn thân thiện, nơi du khách có thể hái ổi, thưởng thức ngay tại vườn và mua mang về theo kg; không gian thích hợp cho dã ngoại và gia đình.",
+    "image": "VanHoa.jpg",
+    "location": "Cù lao Tân Lộc",
+    "category": "Vườn trái cây & Miệt vườn",
+    "hours": "07:00 - 17:00",
+    "price": "Thường miễn phí; phí theo kg khi mua (~15.000 - 25.000 VND/kg)",
+    "transport": "Xe máy / ô tô",
+    "highlights": [
+      "Hái ổi trực tiếp tại vườn, thưởng thức ngay.",
+      "Không gian yên bình, phù hợp picnic.",
+      "Giao lưu với chủ vườn thân thiện."
+    ]
+  },
+  {
+    "id": "hnk-vuon-dua-tan-loc",
+    "name": "Vườn dừa Tân Lộc",
+    "shortDesc": "Cồn dừa xanh mướt, trải nghiệm uống dừa tươi và sống miệt cồn.",
+    "description": "Vườn dừa Tân Lộc (Cồn Dừa) có hàng dừa trải dài, là nơi lý tưởng để thưởng thức nước dừa tươi, chụp ảnh và trải nghiệm đời sống cồn miệt vườn.",
+    "image": "VanHoa.jpg",
+    "location": "Cồn Tân Lộc",
+    "category": "Sinh thái & Miệt cồn",
+    "hours": "07:00 - 18:00",
+    "price": "Thường miễn phí; phí dịch vụ ăn uống",
+    "transport": "Xe máy / ô tô / đò",
+    "highlights": [
+      "Uống dừa tươi tại vườn, check-in giữa hàng dừa.",
+      "Trải nghiệm cuộc sống miệt cồn sông nước.",
+      "Thích hợp cho dã ngoại và chụp ảnh."
+    ]
+  },
+  {
+    "id": "hnk-vuon-man-sau-tia",
+    "name": "Vườn mận Sáu Tia",
+    "shortDesc": "Vườn mận rộng, hái và thưởng thức mận tại chỗ.",
+    "description": "Vườn mận Sáu Tia là điểm hẹn cho tín đồ trái cây, trồng nhiều giống mận ngon, thích hợp hái mận, chụp ảnh và picnic.",
+    "image": "VanHoa.jpg",
+    "location": "Ngoại ô Cần Thơ (~10 km)",
+    "category": "Vườn trái cây",
+    "hours": "07:00 - 17:00",
+    "price": "Thường miễn phí; phí dịch vụ & mận mang về",
+    "transport": "Xe máy / ô tô",
+    "highlights": [
+      "Hái mận và thưởng thức tại chỗ.",
+      "Check-in cùng vườn mận trĩu quả.",
+      "Không gian phù hợp picnic nhỏ."
+    ]
+  }
+]

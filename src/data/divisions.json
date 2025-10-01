@@ -1,0 +1,84 @@
+[
+  {
+    "id": "ninh-kieu",
+    "name": "Quận Ninh Kiều",
+    "area": "61.6 km²",
+    "population": "380,000",
+    "image": "VanHoa.jpg",
+    "desc": "Trung tâm thành phố, nổi bật với Bến Ninh Kiều, các khu thương mại và văn hóa."
+  },
+  {
+    "id": "cai-rang",
+    "name": "Quận Cái Răng",
+    "area": "120 km²",
+    "population": "250,000",
+    "image": "VanHoa.jpg",
+    "desc": "Nổi tiếng với chợ nổi, hoạt động thương mại đường thủy sôi động."
+  },
+  {
+    "id": "binh-thuy",
+    "name": "Quận Bình Thủy",
+    "area": "95 km²",
+    "population": "200,000",
+    "image": "VanHoa.jpg",
+    "desc": "Vùng có nhiều di tích lịch sử, nhà cổ và cảnh quan sông nước."
+  },
+  {
+    "id": "phong-dien",
+    "name": "Huyện Phong Điền",
+    "area": "210 km²",
+    "population": "150,000",
+    "image": "VanHoa.jpg",
+    "desc": "Khu sinh thái, vườn trái cây, trải nghiệm nông thôn miệt vườn."
+  },
+   {
+    "id": "binh-thuy",
+    "name": "Quận Bình Thủy",
+    "area": "95 km²",
+    "population": "200,000",
+    "image": "VanHoa.jpg",
+    "desc": "Vùng có nhiều di tích lịch sử, nhà cổ và cảnh quan sông nước."
+  }, {
+    "id": "binh-thuy6",
+    "name": "Quận Bình Thủy6",
+    "area": "95 km²",
+    "population": "200,000",
+    "image": "VanHoa.jpg",
+    "desc": "Vùng có nhiều di tích lịch sử, nhà cổ và cảnh quan sông nước."
+  }, {
+    "id": "binh-thuy5",
+    "name": "Quận Bình Thủy5",
+    "area": "95 km²",
+    "population": "200,000",
+    "image": "VanHoa.jpg",
+    "desc": "Vùng có nhiều di tích lịch sử, nhà cổ và cảnh quan sông nước."
+  }, {
+    "id": "binh-thuy4",
+    "name": "Quận Bình Thủy4",
+    "area": "95 km²",
+    "population": "200,000",
+    "image": "VanHoa.jpg",
+    "desc": "Vùng có nhiều di tích lịch sử, nhà cổ và cảnh quan sông nước."
+  }, {
+    "id": "binh-thuy3",
+    "name": "Quận Bình Thủy3",
+    "area": "95 km²",
+    "population": "200,000",
+    "image": "VanHoa.jpg",
+    "desc": "Vùng có nhiều di tích lịch sử, nhà cổ và cảnh quan sông nước."
+  }, {
+    "id": "binh-thuy2",
+    "name": "Quận Bình Thủy2",
+    "area": "95 km²",
+    "population": "200,000",
+    "image": "VanHoa.jpg",
+    "desc": "Vùng có nhiều di tích lịch sử, nhà cổ và cảnh quan sông nước."
+  }, {
+    "id": "binh-thuy1",
+    "name": "Quận Bình Thủy1",
+    "area": "95 km²",
+    "population": "200,000",
+    "image": "VanHoa.jpg",
+    "desc": "Vùng có nhiều di tích lịch sử, nhà cổ và cảnh quan sông nước."
+  }
+]

@@ -1,0 +1,158 @@
+/* src/styles/TourPage.css */
+:root {
+  --accent: #2f9e44;
+  --muted: #6b7280;
+  --ink: #071028;
+  --bg: #f6f8fa;
+  --card-bg: #ffffff;
+}
+
+.tp-root {
+  padding: 40px 20px;
+  background: var(--bg);
+  min-height: 100vh;
+  font-family: "Segoe UI", Tahoma, sans-serif;
+  color: var(--ink);
+}
+
+/* header */
+.tp-header {
+  text-align: center;
+  margin-bottom: 26px;
+}
+.tp-header h1 {
+  font-size: 2rem;
+  color: #072634;
+  margin: 0 0 6px;
+  letter-spacing: -0.2px;
+}
+.tp-sub {
+  color: var(--muted);
+  margin: 0;
+}
+
+/* grid */
+.tp-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 18px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* card */
+.tp-card {
+  background: var(--card-bg);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 8px 26px rgba(6, 24, 40, 0.06);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(6,24,40,0.03);
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+}
+.tp-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 42px rgba(6, 24, 40, 0.1);
+  border-color: rgba(47,158,68,0.16);
+}
+
+/* thumbnail */
+.tp-thumb {
+  position: relative;
+  height: 180px;
+  overflow: hidden;
+}
+.tp-thumb img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.02);
+  transition: transform 0.4s ease;
+}
+.tp-card:hover .tp-thumb img {
+  transform: scale(1.07);
+}
+
+/* badges on thumb */
+.tp-thumb-overlay {
+  position: absolute;
+  left: 12px;
+  bottom: 12px;
+  display: flex;
+  gap: 8px;
+}
+.tp-badge {
+  display: inline-block;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.9);
+  color: #072634;
+  font-weight: 800;
+  font-size: 0.85rem;
+  border: 1px solid rgba(6,24,40,0.08);
+  backdrop-filter: blur(4px);
+}
+.tp-badge.ghost {
+  background: rgba(255,255,255,0.7);
+}
+
+/* info */
+.tp-info {
+  padding: 14px 16px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.tp-title {
+  margin: 0;
+  font-size: 1.08rem;
+  color: #072634;
+  line-height: 1.25;
+}
+.tp-short {
+  margin: 0;
+  color: #475569;
+  font-size: 0.95rem;
+  min-height: 44px; /* giữ chiều cao đều */
+}
+
+/* bottom row */
+.tp-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 8px;
+}
+.tp-price {
+  background: rgba(47,158,68,0.08);
+  color: #0f3d1d;
+  border: 1px solid rgba(47,158,68,0.18);
+  padding: 6px 10px;
+  border-radius: 10px;
+  font-weight: 800;
+}
+
+/* button */
+.btn.tp-btn {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 800;
+  box-shadow: 0 10px 24px rgba(47,158,68,0.18);
+  transition: transform .12s ease, box-shadow .12s ease;
+}
+.btn.tp-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 32px rgba(47,158,68,0.22);
+}
+
+/* responsive tweaks */
+@media (max-width: 560px) {
+  .tp-thumb { height: 150px; }
+}
