@@ -1,5 +1,5 @@
 // src/screens/AdminPage.jsx
-import React, { useEffect, useState, useContext, useMemo } from "react";
+import React, { useEffect, useState, useContext, useMemo, useCallback } from "react";
 import "../styles/AdminPage.css";
 import { apiFetch } from "../utils/apiFetch";
 import { AuthContext } from "../auth/AuthContext";
@@ -85,8 +85,8 @@ export default function AdminPage() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [mode, limit, accessToken]);
 
-  // Favorites chart
-  const loadFavs = async () => {
+  // Favorites chart (memo hóa để thỏa eslint exhaustive-deps)
+  const loadFavs = useCallback(async () => {
     setFavStatus("loading");
     try {
       const url = `/api/admin/favorites?limit=${encodeURIComponent(favLimit)}`;
@@ -109,11 +109,11 @@ export default function AdminPage() {
       setFavStatus("error");
       setFavData({ rows: [] });
     }
-  };
+  }, [favLimit, accessToken]);
 
   useEffect(() => {
     loadFavs();
-  }, [favLimit, accessToken]);
+  }, [loadFavs]);
 
   // Chart sizing for visits
   const { maxValue, bars } = useMemo(() => {
