@@ -1,12 +1,14 @@
 // src/screens/Homepage.jsx
 import React, { useState, useMemo, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import "../../src/styles/HomePage.css";
+import "../styles/HomePage.css";
 import heritagesData from "../data/heritages.json";
 
-import VanHoaImg from "../images/VanHoa.jpg";
+// Ảnh fallback khi không tìm thấy ảnh theo tên trong JSON
+import FallbackImg from "../images/HomePage.jpg";
 
-const imageMap = { "VanHoa.jpg": VanHoaImg };
+// Helper auto-map ảnh theo tên file (đã tạo ở src/utils/images.js)
+import { resolveImageByName } from "../utils/images";
 
 export default function HomePage() {
   const navigate = useNavigate();
@@ -46,7 +48,8 @@ export default function HomePage() {
   const nextPage = () => goToPage(page + 1);
   const prevPage = () => goToPage(page - 1);
 
-  const resolveImage = (img) => imageMap[img] || VanHoaImg;
+  // Resolve ảnh theo tên trong JSON, fallback nếu không có
+  const resolveImage = (imgName) => resolveImageByName(imgName, FallbackImg);
 
   // compute floating overlay position near the hovered item
   const showOverlayFor = (id, targetEl) => {
@@ -213,7 +216,11 @@ export default function HomePage() {
           onMouseEnter={() => {}}
         >
           <div className="preview-image">
-            <img src={resolveImage(active.image)} alt={active.name} />
+            <img
+              src={resolveImage(active.image)}
+              alt={active.name}
+              onError={(e) => (e.currentTarget.src = FallbackImg)}
+            />
           </div>
           <div className="preview-body">
             <h3>{active.name}</h3>

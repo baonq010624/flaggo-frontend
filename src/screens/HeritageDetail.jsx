@@ -1,15 +1,16 @@
 // src/screens/HeritageDetail.jsx
 import React, { useMemo, useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import heritageData from "../data/heritages.json"; // <— dữ liệu MỚI
+import heritageData from "../data/heritages.json";
 import "../styles/HeritageDetail.css";
-import VanHoaImg from "../images/VanHoa.jpg";
 
-const API_BASE = process.env.REACT_APP_API_URL || "http://localhost:5000";
+// Ảnh fallback khi không tìm thấy ảnh theo tên trong JSON
+import FallbackImg from "../images/VanHoa.jpg";
 
-const imageMap = {
-  "VanHoa.jpg": VanHoaImg,
-};
+// Helper auto-map ảnh theo tên file (đã tạo ở src/utils/images.js)
+import { resolveImageByName } from "../utils/images";
+
+const API_BASE = (process.env.REACT_APP_API_URL || "http://localhost:5000").replace(/\/+$/, "");
 
 function getClientId() {
   try {
@@ -32,14 +33,13 @@ export default function HeritageDetail() {
   const [loading, setLoading] = useState(true);
   const [favMsg, setFavMsg] = useState("");
 
-  // tìm heritage theo id trong dataset mới
+  // Tìm heritage theo id trong dataset
   const heritage = useMemo(() => {
-    return heritageData.find(
-      (h) => (h?.id ?? "").toString() === (id ?? "").toString()
-    );
+    return heritageData.find((h) => (h?.id ?? "").toString() === (id ?? "").toString());
   }, [id]);
 
-  const resolveImage = (imgName) => imageMap[imgName] || VanHoaImg;
+  // Resolve ảnh theo tên trong JSON, fallback nếu không có
+  const resolveImage = (imgName) => resolveImageByName(imgName, FallbackImg);
 
   // trạng thái đã "yêu thích" của client cho heritage này
   useEffect(() => {
@@ -66,7 +66,7 @@ export default function HeritageDetail() {
     return () => {
       mounted = false;
     };
-  }, [heritage]);
+  }, [heritage]); // chỉ phụ thuộc id là đủ
 
   const handleToggleFavorite = async () => {
     if (!heritage || loading) return;
@@ -111,7 +111,11 @@ export default function HeritageDetail() {
   return (
     <div className="heritage-detail container">
       <header className="detail-hero">
-        <img src={resolveImage(heritage.image)} alt={heritage.name} />
+        <img
+          src={resolveImage(heritage.image)}
+          alt={heritage.name}
+          onError={(e) => (e.currentTarget.src = FallbackImg)}
+        />
         <div className="overlay">
           <h1>{heritage.name}</h1>
           {heritage.shortDesc && <p>{heritage.shortDesc}</p>}
@@ -179,8 +183,16 @@ export default function HeritageDetail() {
         {(heritage.location || heritage.category) && (
           <section>
             <h2>Thông tin thêm</h2>
-            {heritage.location && <p>📍 <strong>Địa điểm:</strong> {heritage.location}</p>}
-            {heritage.category && <p>🏷️ <strong>Loại:</strong> {heritage.category}</p>}
+            {heritage.location && (
+              <p>
+                📍 <strong>Địa điểm:</strong> {heritage.location}
+              </p>
+            )}
+            {heritage.category && (
+              <p>
+                🏷️ <strong>Loại:</strong> {heritage.category}
+              </p>
+            )}
           </section>
         )}
       </main>

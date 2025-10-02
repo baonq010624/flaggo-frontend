@@ -27,7 +27,7 @@
 .hg-hero {
   position: relative;
   background: linear-gradient(180deg, rgba(8, 18, 28, 0.38), rgba(8, 18, 28, 0.18)),
-    url("../images/VanHoa.jpg") center/cover no-repeat;
+    url("../images/HomePage.jpg") center/cover no-repeat;
   min-height: 62vh;
   display: flex;
   align-items: center;
