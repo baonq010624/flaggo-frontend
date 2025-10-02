@@ -4,18 +4,26 @@ import { useNavigate } from "react-router-dom";
 import "../../src/styles/TourPage.css";
 import toursData from "../data/tours.json";
 
-import VanHoaImg from "../images/VanHoa.jpg";
-
-const imageMap = {
-  "VanHoa.jpg": VanHoaImg,
-  // map thêm nếu bạn có ảnh khác
-};
+// Fallback khi không tìm thấy ảnh theo tên
+import FallbackImg from "../images/VanHoa.jpg";
+// Helper auto-map ảnh theo tên file (đã tạo ở src/utils/images.js)
+import { resolveImageByName } from "../utils/images";
 
 export default function TourPage() {
   const navigate = useNavigate();
   const tours = useMemo(() => toursData || [], []);
 
-  const resolveImage = (img) => imageMap[img] || VanHoaImg;
+  const resolveImage = (imgName) => resolveImageByName(imgName, FallbackImg);
+
+  const formatPrice = (t) => {
+    if (t.priceText) return t.priceText;
+    const n = Number(t.price);
+    if (Number.isFinite(n)) {
+      // ví dụ 99000 -> "99k VND"
+      return `${Math.round(n / 1000).toLocaleString()}k VND`;
+    }
+    return "Liên hệ";
+  };
 
   return (
     <div className="tp-root">
@@ -41,24 +49,26 @@ export default function TourPage() {
             }}
           >
             <div className="tp-thumb">
-              <img src={resolveImage(t.image)} alt={t.title} />
+              <img
+                src={resolveImage(t.image)}
+                alt={t.title}
+                onError={(e) => (e.currentTarget.src = FallbackImg)}
+              />
               <div className="tp-thumb-overlay">
-                <span className="tp-badge">{t.duration}</span>
-                <span className="tp-badge ghost">Sức chứa: {t.capacity}</span>
+                {t.duration && <span className="tp-badge">{t.duration}</span>}
+                {t.capacity && (
+                  <span className="tp-badge ghost">Sức chứa: {t.capacity}</span>
+                )}
               </div>
             </div>
 
             <div className="tp-info">
               <h3 className="tp-title">{t.title}</h3>
-              {/* show code if available */}
               {t.code && <div className="tp-code">Mã tour: {t.code}</div>}
-              <p className="tp-short">{t.shortDesc}</p>
+              {t.shortDesc && <p className="tp-short">{t.shortDesc}</p>}
 
               <div className="tp-bottom">
-                <div className="tp-price">
-                  {t.priceText ||
-                    `${(Number(t.price) / 1000).toLocaleString()}k VND`}
-                </div>
+                <div className="tp-price">{formatPrice(t)}</div>
                 <button
                   className="btn tp-btn"
                   onClick={(e) => {

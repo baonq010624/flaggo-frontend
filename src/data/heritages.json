@@ -276,7 +276,7 @@
     "name": "Bảo tàng Sóc Trăng",
     "shortDesc": "Bảo tàng trưng bày văn hóa Kinh, Khmer, Hoa tại Sóc Trăng (tham khảo).",
     "description": "Bảo tàng Sóc Trăng lưu giữ nhiều hiện vật quý về lịch sử và văn hóa của ba dân tộc chính; không gian trưng bày khoa học, giúp khám phá đa dạng văn hóa khu vực miền Tây.",
-    "image": "VanHoa.jpg",
+    "image": "BaoTangST.jpg",
     "location": "Sóc Trăng (tham khảo, vùng lân cận)",
     "category": "Bảo tàng",
     "hours": "07:30 - 11:00, 13:30 - 17:00 (T2 - T6)",
@@ -293,7 +293,7 @@
     "name": "Khu Bảo tồn Thiên nhiên Lung Ngọc Hoàng",
     "shortDesc": "Khu rừng tràm đa dạng sinh học — 'lá phổi xanh' của vùng Đồng bằng sông Cửu Long.",
     "description": "Lung Ngọc Hoàng là khu bảo tồn đất ngập nước với rừng tràm, kênh rạch chằng chịt và nhiều loài động thực vật. Trải nghiệm đi xuồng ba lá giữa rừng tràm và quan sát chim là điểm nhấn không thể bỏ qua.",
-    "image": "VanHoa.jpg",
+    "image": "KhuBaoTonLNH.jpg",
     "location": "Khu bảo tồn Lung Ngọc Hoàng",
     "category": "Bảo tồn thiên nhiên & Sinh thái",
     "hours": "08:30 - 17:00",
@@ -310,7 +310,7 @@
     "name": "Rừng tràm Vị Thủy",
     "shortDesc": "Rừng tràm yên bình, phù hợp cho đi xuồng và chụp ảnh thiên nhiên.",
     "description": "Rừng tràm Vị Thủy là nơi để tận hưởng thiên nhiên, đi xuồng xuyên rừng tràm và chụp ảnh phong cảnh xanh mướt. Đây là điểm lý tưởng cho người thích yên tĩnh và gần gũi thiên nhiên.",
-    "image": "VanHoa.jpg",
+    "image": "RungChamVT.jpg",
     "location": "Vị Thủy (khu rừng tràm)",
     "category": "Sinh thái",
     "hours": "Cả ngày",
@@ -327,7 +327,7 @@
     "name": "Vườn ổi Cô Điệp",
     "shortDesc": "Vườn ổi miệt vườn, hái và mua ổi tại chỗ.",
     "description": "Vườn ổi Cô Điệp là điểm miệt vườn thân thiện, nơi du khách có thể hái ổi, thưởng thức ngay tại vườn và mua mang về theo kg; không gian thích hợp cho dã ngoại và gia đình.",
-    "image": "VanHoa.jpg",
+    "image": "VuonOiCD.jpg",
     "location": "Cù lao Tân Lộc",
     "category": "Vườn trái cây & Miệt vườn",
     "hours": "07:00 - 17:00",
@@ -344,7 +344,7 @@
     "name": "Vườn dừa Tân Lộc",
     "shortDesc": "Cồn dừa xanh mướt, trải nghiệm uống dừa tươi và sống miệt cồn.",
     "description": "Vườn dừa Tân Lộc (Cồn Dừa) có hàng dừa trải dài, là nơi lý tưởng để thưởng thức nước dừa tươi, chụp ảnh và trải nghiệm đời sống cồn miệt vườn.",
-    "image": "VanHoa.jpg",
+    "image": "VuonDuaTL.jpg",
     "location": "Cồn Tân Lộc",
     "category": "Sinh thái & Miệt cồn",
     "hours": "07:00 - 18:00",
@@ -354,23 +354,6 @@
       "Uống dừa tươi tại vườn, check-in giữa hàng dừa.",
       "Trải nghiệm cuộc sống miệt cồn sông nước.",
       "Thích hợp cho dã ngoại và chụp ảnh."
-    ]
-  },
-  {
-    "id": "hnk-vuon-man-sau-tia",
-    "name": "Vườn mận Sáu Tia",
-    "shortDesc": "Vườn mận rộng, hái và thưởng thức mận tại chỗ.",
-    "description": "Vườn mận Sáu Tia là điểm hẹn cho tín đồ trái cây, trồng nhiều giống mận ngon, thích hợp hái mận, chụp ảnh và picnic.",
-    "image": "VanHoa.jpg",
-    "location": "Ngoại ô Cần Thơ (~10 km)",
-    "category": "Vườn trái cây",
-    "hours": "07:00 - 17:00",
-    "price": "Thường miễn phí; phí dịch vụ & mận mang về",
-    "transport": "Xe máy / ô tô",
-    "highlights": [
-      "Hái mận và thưởng thức tại chỗ.",
-      "Check-in cùng vườn mận trĩu quả.",
-      "Không gian phù hợp picnic nhỏ."
     ]
   }
 ]
