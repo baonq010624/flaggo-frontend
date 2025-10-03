@@ -1,4 +1,3 @@
-// src/auth/AuthContext.jsx
 import React, { createContext, useEffect, useState } from "react";
 import { refreshRequest } from "./authService";
 
@@ -7,21 +6,20 @@ export const AuthContext = createContext();
 const API_BASE = process.env.REACT_APP_API_URL || "http://localhost:5000";
 
 export const AuthProvider = ({ children }) => {
+  // 1) Rehydrate ngay từ localStorage
   const [user, setUser] = useState(() => {
-    try {
-      const raw = localStorage.getItem("user");
-      return raw ? JSON.parse(raw) : null;
-    } catch { return null; }
+    try { return JSON.parse(localStorage.getItem("user") || "null"); } catch { return null; }
   });
   const [accessToken, setAccessToken] = useState(() => localStorage.getItem("accessToken") || "");
   const [loading, setLoading] = useState(true);
 
-  // Tries refresh on init to populate accessToken & user
+  // 2) Sau khi mount, gọi refresh ở nền
   useEffect(() => {
     let mounted = true;
-    const init = async () => {
+
+    const doRefresh = async () => {
       try {
-        const data = await refreshRequest(); // will throw if fails
+        const data = await refreshRequest(); // yêu cầu cookie cross-site
         if (!mounted) return;
         if (data.accessToken) {
           setAccessToken(data.accessToken);
@@ -32,16 +30,20 @@ export const AuthProvider = ({ children }) => {
           localStorage.setItem("user", JSON.stringify(data.user));
         }
       } catch (e) {
-        // not logged in or refresh failed
-        setAccessToken("");
-        setUser(null);
-        localStorage.removeItem("accessToken");
-        localStorage.removeItem("user");
+        // ⚠️ ĐIỂM KHÁC BIỆT:
+        // Không xoá localStorage ngay nếu refresh fail.
+        // Giữ trạng thái từ LS (nếu còn token chưa hết hạn) để tránh 'đăng xuất' sau reload.
+        // Có thể log nhẹ để debug:
+        // console.debug("Refresh failed:", e?.status, e?.message);
       } finally {
         if (mounted) setLoading(false);
       }
     };
-    init();
+
+    // Nếu đã có LS token -> hiển thị ngay rồi refresh nền
+    // Nếu chưa có -> vẫn thử refresh (có thể user còn cookie)
+    doRefresh();
+
     return () => { mounted = false; };
   }, []);
 

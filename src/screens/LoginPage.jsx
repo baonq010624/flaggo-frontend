@@ -1,19 +1,21 @@
 // src/screens/LoginPage.jsx
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/LoginPage.css";
 import logo from "../images/Logo.png";
+import { AuthContext } from "../auth/AuthContext";
 
 function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
+  const auth = useContext(AuthContext);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       const res = await fetch(
-        `${process.env.REACT_APP_API_URL || "http://localhost:5000"}/api/auth/login`,
+        `${(process.env.REACT_APP_API_URL || "http://localhost:5000").replace(/\/+$/, "")}/api/auth/login`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -24,8 +26,12 @@ function LoginPage() {
 
       const data = await res.json();
       if (res.ok) {
+        // Lưu accessToken + user (và đồng bộ Context nếu có)
         localStorage.setItem("accessToken", data.accessToken);
         localStorage.setItem("user", JSON.stringify(data.user));
+        if (auth && typeof auth.saveLogin === "function") {
+          auth.saveLogin(data.accessToken, data.user);
+        }
         navigate("/homepage");
       } else {
         alert(data.message || "Đăng nhập thất bại");
