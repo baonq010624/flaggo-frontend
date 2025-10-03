@@ -1,4 +1,3 @@
-// src/screens/TourPage.jsx
 import React, { useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import "../../src/styles/TourPage.css";
@@ -19,7 +18,6 @@ export default function TourPage() {
     if (t.priceText) return t.priceText;
     const n = Number(t.price);
     if (Number.isFinite(n)) {
-      // ví dụ 99000 -> "99k VND"
       return `${Math.round(n / 1000).toLocaleString()}k VND`;
     }
     return "Liên hệ";
@@ -28,15 +26,15 @@ export default function TourPage() {
   return (
     <div className="tp-root">
       {/* Header */}
-      <div className="tp-header">
-        <h1>Các Tour Du Lịch</h1>
+      <div className="tp-header container">
+        <h1>Tour Du Lịch</h1>
         <p className="tp-sub">
-          Chọn tour phù hợp — từ trải nghiệm miệt vườn đến homestay văn hóa.
+          Chọn tour phù hợp — từ trải nghiệm miệt vườn, sông nước đến hành trình liên tỉnh.
         </p>
       </div>
 
       {/* Grid */}
-      <div className="tp-grid">
+      <div className="tp-grid container">
         {tours.map((t) => (
           <article
             key={t.id}
@@ -48,33 +46,56 @@ export default function TourPage() {
               if (e.key === "Enter") navigate(`/tours/${t.id}`);
             }}
           >
+            {/* Thumb block */}
             <div className="tp-thumb">
               <img
                 src={resolveImage(t.image)}
                 alt={t.title}
                 onError={(e) => (e.currentTarget.src = FallbackImg)}
+                loading="lazy"
               />
-              <div className="tp-thumb-overlay">
-                {t.duration && <span className="tp-badge">{t.duration}</span>}
+
+              {/* Corner badges */}
+              <div className="tp-corners">
+                {t.duration && <span className="tp-chip">{t.duration}</span>}
                 {t.capacity && (
-                  <span className="tp-badge ghost">Sức chứa: {t.capacity}</span>
+                  <span className="tp-chip ghost">{t.capacity} khách</span>
                 )}
+              </div>
+
+              {/* Title overlay */}
+              <div className="tp-title-overlay">
+                <h3 className="tp-title">{t.title}</h3>
               </div>
             </div>
 
+            {/* Info block */}
             <div className="tp-info">
-              <h3 className="tp-title">{t.title}</h3>
               {t.code && <div className="tp-code">Mã tour: {t.code}</div>}
+
+              {/* PRICE moved here */}
+              <div className="tp-price-inline" title={formatPrice(t)}>
+                {formatPrice(t)}
+              </div>
+
               {t.shortDesc && <p className="tp-short">{t.shortDesc}</p>}
 
+              <div className="tp-meta">
+                {t.departure && (
+                  <span className="tp-pill">Khởi hành: {t.departure}</span>
+                )}
+                {t.pickup && <span className="tp-pill">Đón: {t.pickup}</span>}
+                {t.vehicle && <span className="tp-pill">{t.vehicle}</span>}
+              </div>
+
               <div className="tp-bottom">
-                <div className="tp-price">{formatPrice(t)}</div>
                 <button
                   className="btn tp-btn"
                   onClick={(e) => {
                     e.stopPropagation();
                     navigate(`/tours/${t.id}`);
                   }}
+                  aria-label={`Xem chi tiết ${t.title}`}
                 >
                   Xem chi tiết
                 </button>

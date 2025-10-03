@@ -1,4 +1,3 @@
-
 [
   {
     "id": "ct01-25",
@@ -16,6 +15,7 @@
     "price": "99000",
     "priceText": "99.000 VND/khách",
     "image": "BenNK.jpg",
+    "images": ["ChoNoi.png"],
     "duration": "03 tiếng",
     "pickup": "Bến Ninh Kiều",
     "departure": "Hàng Ngày",
@@ -57,6 +57,7 @@
     "price": "350000",
     "priceText": "350.000 VND/khách",
     "image": "ConSon.jpg",
+    "images": ["ConSon.png"],
     "duration": "1/2 ngày",
     "pickup": "Khách sạn trung tâm",
     "departure": "Theo lịch (sáng / chiều)",
@@ -97,6 +98,7 @@
     "price": "1090000",
     "priceText": "1.090.000 VND/khách (ghép lẻ)",
     "image": "ChoNoi.jpg",
+    "images": ["CanTho_AnGiang1.png"],
     "duration": "1 ngày",
     "pickup": "Khách sạn trung tâm",
     "departure": "Hàng Ngày (mùa nước nổi)",
@@ -139,8 +141,9 @@
       "child_under_5": "0",
       "single_room_supplement": "800000"
     },
-    "priceText": "Từ 3.290.000 VND (3 sao) — xem chi tiết trong mô tả",
+    "priceText": "Từ 995.000 VND — xem chi tiết trong mô tả",
     "image": "ChuaSomRong.jpg",
+    "images": ["CanTho_SocTrang1.png"],
     "duration": "03 ngày 02 đêm",
     "pickup": "Sân bay hoặc khách sạn trung tâm",
     "departure": "Thứ 6 hàng tuần",
@@ -189,8 +192,9 @@
       "child_under_5": "0",
       "single_room_supplement": "400000"
     },
-    "priceText": "1.990.000 VND (3 sao) — xem chi tiết trong mô tả",
+    "priceText": "995.000 VND — xem chi tiết trong mô tả",
     "image": "ChuaDoi.jpg",
+    "images": ["CanThơ_SocTrang2.png"],
     "duration": "02 ngày 01 đêm",
     "pickup": "Sân bay hoặc khách sạn trung tâm",
     "departure": "Thứ 6 hàng tuần",

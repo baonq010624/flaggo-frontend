@@ -1,4 +1,3 @@
-// src/screens/TourDetailPage.jsx
 import React, { useMemo } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import "../../src/styles/TourDetailPage.css";
@@ -26,13 +25,20 @@ export default function TourDetailPage() {
     );
   }
 
+  // Hero vẫn dùng "image"
   const resolveImage = (imgName) => resolveImageByName(imgName, FallbackImg);
+
+  // Poster lớn bên trái trong BODY: lấy ảnh đầu tiên từ "images"
+  const posterSrc = resolveImageByName(tour?.images?.[0], FallbackImg);
 
   const priceDisplay =
     tour.priceText ||
     (Number.isFinite(Number(tour.price))
       ? `${Math.round(Number(tour.price) / 1000).toLocaleString()}k VND`
       : "Liên hệ");
+
+  // Fanpage link (nếu có)
+  const fanpageUrl = tour?.contact?.fanpage || "";
 
   return (
     <div className="tdp-root">
@@ -52,7 +58,7 @@ export default function TourDetailPage() {
           </div>
           <h1>{tour.title}</h1>
 
-          {/* show code / pickup / departure / vehicle */}
+          {/* meta ngắn */}
           <div className="tdp-meta">
             {tour.code && <div className="meta-line">Mã tour: {tour.code}</div>}
             {tour.departure && (
@@ -67,140 +73,64 @@ export default function TourDetailPage() {
           </div>
 
           {!!tour.shortDesc && <p className="tdp-sub">{tour.shortDesc}</p>}
-          <div className="tdp-hero-foot">
-            <span className="tdp-price">💰 {priceDisplay}</span>
-            <div className="tdp-hero-actions">
-              <button className="btn primary">Đặt ngay</button>
-              <button className="btn ghost" onClick={() => navigate("/tours")}>
-                ← Danh sách tour
-              </button>
-            </div>
-          </div>
+
+          <span className="tdp-price">💰 {priceDisplay}</span>
         </div>
       </section>
 
-      {/* BODY */}
+      {/* BODY: Poster to bên trái + nút bên phải */}
       <main className="tdp-body">
-        <div className="tdp-grid">
-          {/* left: content */}
-          <section className="tdp-card tdp-info">
-            <h2>Chương trình chi tiết</h2>
+        <div className="tdp-grid poster-layout">
+          {/* Left: Poster ảnh to */}
+          <section className="tdp-card tdp-poster-card">
+            <img
+              className="tdp-poster"
+              src={posterSrc}
+              alt={`${tour.title} poster`}
+              onError={(e) => (e.currentTarget.src = FallbackImg)}
+            />
+          </section>
 
-            {tour.description && <p className="tdp-desc">{tour.description}</p>}
-
-            {/* itinerary */}
-            {Array.isArray(tour.itinerary) && tour.itinerary.length > 0 && (
-              <>
-                <h3>Hành trình / Lịch trình</h3>
-                <ol className="tdp-itinerary">
-                  {tour.itinerary.map((step, idx) => (
-                    <li key={idx}>{step}</li>
-                  ))}
-                </ol>
-              </>
-            )}
-
-            {/* included / not included */}
-            {Array.isArray(tour.included) && tour.included.length > 0 && (
-              <>
-                <h3>Dịch vụ bao gồm</h3>
-                <ul>
-                  {tour.included.map((it, idx) => (
-                    <li key={idx}>{it}</li>
-                  ))}
-                </ul>
-              </>
-            )}
-            {Array.isArray(tour.notIncluded) && tour.notIncluded.length > 0 && (
-              <>
-                <h3>Dịch vụ không bao gồm</h3>
-                <ul>
-                  {tour.notIncluded.map((it, idx) => (
-                    <li key={idx}>{it}</li>
-                  ))}
-                </ul>
-              </>
-            )}
-
-            {/* meta small cards */}
-            <div className="tdp-meta-cards">
-              {tour.duration && (
-                <div className="tdp-meta-card">
-                  <div className="meta-title">Thời lượng</div>
-                  <div className="meta-value">{tour.duration}</div>
-                </div>
+          {/* Right: Action buttons */}
+          <aside className="tdp-card tdp-side-card">
+            <h3 className="side-title">Hành động nhanh</h3>
+            <div className="side-actions">
+              <button className="btn primary btn-lg">Đặt ngay</button>
+              {fanpageUrl ? (
+                <a
+                  className="btn outline btn-lg"
+                  href={fanpageUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Fanpage
+                </a>
+              ) : (
+                <button className="btn outline btn-lg" disabled>
+                  Fanpage
+                </button>
               )}
-              {tour.capacity && (
-                <div className="tdp-meta-card">
-                  <div className="meta-title">Sức chứa</div>
-                  <div className="meta-value">{tour.capacity} khách</div>
-                </div>
-              )}
-              <div className="tdp-meta-card">
-                <div className="meta-title">Giá</div>
-                <div className="meta-value accent">{priceDisplay}</div>
-              </div>
+              <button
+                className="btn ghost dark btn-lg"
+                onClick={() => navigate("/tours")}
+              >
+                ← Quay lại danh sách
+              </button>
             </div>
-
-            {/* child policy & cancellation */}
-            {tour.childPolicy && (
-              <>
-                <h3>Quy định cho trẻ em</h3>
-                <p>{tour.childPolicy}</p>
-              </>
-            )}
-            {tour.cancellation && (
-              <>
-                <h3>Quy định huỷ tour</h3>
-                <p>{tour.cancellation}</p>
-              </>
-            )}
-          </section>
-
-          {/* right: highlights & contact */}
-          <section className="tdp-card tdp-highlights">
-            <h2>Điểm nổi bật</h2>
-            <ul className="tdp-hl">
-              {Array.isArray(tour.highlights) &&
-                tour.highlights.map((h, idx) => (
-                  <li key={idx}>
-                    <span className="dot" />
-                    <span>{h}</span>
-                  </li>
-                ))}
-            </ul>
-
-            {tour.contact && (
-              <>
-                <h3>Thông tin liên hệ</h3>
-                <div className="contact-block">
-                  {tour.contact.company && (
-                    <div>
-                      <strong>{tour.contact.company}</strong>
-                    </div>
-                  )}
-                  {tour.contact.phone && <div>Điện thoại: {tour.contact.phone}</div>}
-                  {tour.contact.address && (
-                    <div>Địa chỉ: {tour.contact.address}</div>
-                  )}
-                  {tour.contact.email && <div>Email: {tour.contact.email}</div>}
-                  {tour.contact.fanpage && (
-                    <div>
-                      Fanpage:{" "}
-                      <a href={tour.contact.fanpage} target="_blank" rel="noreferrer">
-                        Link
-                      </a>
-                    </div>
-                  )}
-                </div>
-              </>
-            )}
-          </section>
+            <p className="side-note">
+              * Poster hiển thị đủ thông tin chi tiết của tour.
+            </p>
+          </aside>
         </div>
 
         {/* bottom actions (mobile-friendly) */}
         <div className="tdp-actions">
           <button className="btn primary">Đặt ngay</button>
+          {fanpageUrl ? (
+            <a className="btn outline" href={fanpageUrl} target="_blank" rel="noreferrer">
+              Fanpage
+            </a>
+          ) : null}
           <button className="btn outline" onClick={() => navigate("/tours")}>
             Quay lại danh sách
           </button>
