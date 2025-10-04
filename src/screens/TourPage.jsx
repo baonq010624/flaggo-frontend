@@ -58,9 +58,6 @@ export default function TourPage() {
               {/* Corner badges */}
               <div className="tp-corners">
                 {t.duration && <span className="tp-chip">{t.duration}</span>}
-                {t.capacity && (
-                  <span className="tp-chip ghost">{t.capacity} khách</span>
-                )}
               </div>
 
               {/* Title overlay */}
