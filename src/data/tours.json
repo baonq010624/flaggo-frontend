@@ -12,10 +12,10 @@
       "Thăm Lò Thốt Nốt: tìm hiểu cây thốt nốt, thử bánh thốt nốt và mua sản phẩm địa phương.",
       "Kết thúc: tàu đưa khách về điểm đón ban đầu, HDV chia tay."
     ],
-    "price": "99000",
-    "priceText": "99.000 VND/khách",
+    "price": "199000",
+    "priceText": "199.000 VND",
     "image": "BenNK.jpg",
-    "images": ["ChoNoi.png"],
+    "images": ["CT01_25.png"],
     "duration": "03 tiếng",
     "pickup": "Bến Ninh Kiều",
     "departure": "Hàng Ngày",
@@ -54,10 +54,10 @@
       "Đến Cồn Sơn: đón khách bằng nước mát đặc trưng, tản bộ vườn trái cây và tham gia làm bánh dân gian.",
       "11:30 hoặc 17:00: Tàu đưa khách về bến, kết thúc chương trình."
     ],
-    "price": "350000",
-    "priceText": "350.000 VND/khách",
+    "price": "385000",
+    "priceText": "385.000 VND",
     "image": "ConSon.jpg",
-    "images": ["ConSon.png"],
+    "images": ["CT02_25.png"],
     "duration": "1/2 ngày",
     "pickup": "Khách sạn trung tâm",
     "departure": "Theo lịch (sáng / chiều)",
@@ -95,10 +95,10 @@
       "Tham quan Miếu Bà Chúa Xứ và Núi Sam: Đền Phật Ngọc, Bệ đá sa thạch, ngắm cảnh biên giới. Chiều về Cần Thơ, kết thúc tour."
     ],
     "season": "Tháng 09, 10, 11/2025",
-    "price": "1090000",
-    "priceText": "1.090.000 VND/khách (ghép lẻ)",
+    "price": "199000",
+    "priceText": "1.199.000 VND",
     "image": "ChoNoi.jpg",
-    "images": ["CanTho_AnGiang1.png"],
+    "images": ["MTHN01_25.png","MTHN01_25_1.png"],
     "duration": "1 ngày",
     "pickup": "Khách sạn trung tâm",
     "departure": "Hàng Ngày (mùa nước nổi)",
@@ -127,7 +127,7 @@
   {
     "id": "mtht02-25",
     "code": "MTHT02.25",
-    "title": "CẦN THƠ – SÓC TRĂNG – BẠC LIÊU – CÀ MAU – AN GIANG (3N2Đ)",
+    "title": "CẦN THƠ – CÀ MAU – AN GIANG (3N2Đ)",
     "shortDesc": "Tour 3 ngày 2 đêm khám phá Soc Trang, Bạc Liêu, Cà Mau và trải nghiệm mùa nước nổi An Giang.",
     "description": "Hành trình 3N2Đ từ Cần Thơ: tham quan chùa Chén Kiểu, Nhà Công Tử Bạc Liêu, Đất Mũi Cà Mau, Tri Tôn mùa nước nổi và Miếu Bà Chúa Xứ.",
     "itinerary": [
@@ -141,9 +141,9 @@
       "child_under_5": "0",
       "single_room_supplement": "800000"
     },
-    "priceText": "Từ 995.000 VND — xem chi tiết trong mô tả",
+    "priceText": "Từ 3.619.000 VND",
     "image": "ChuaSomRong.jpg",
-    "images": ["CanTho_SocTrang1.png"],
+    "images": ["MTHT02_25.png","MTHT02_25_1.png"],
     "duration": "03 ngày 02 đêm",
     "pickup": "Sân bay hoặc khách sạn trung tâm",
     "departure": "Thứ 6 hàng tuần",
@@ -179,7 +179,7 @@
   {
     "id": "mtht01-25",
     "code": "MTHT.01.25",
-    "title": "CẦN THƠ - SÓC TRĂNG – BẠC LIÊU – CÀ MAU (2N1Đ)",
+    "title": "CẦN THƠ - CÀ MAU (2N1Đ)",
     "shortDesc": "Tour 2 ngày 1 đêm: Cà Mau - Đất Mũi - Sóc Trăng - Bạc Liêu. Khởi hành thứ 6 hàng tuần.",
     "description": "Hành trình về cực Nam Tổ quốc: Chùa Chén Kiểu, Nhà Công Tử Bạc Liêu, Vườn quốc gia Mũi Cà Mau và cột mốc GPS 0001.",
     "itinerary": [
@@ -192,9 +192,9 @@
       "child_under_5": "0",
       "single_room_supplement": "400000"
     },
-    "priceText": "995.000 VND — xem chi tiết trong mô tả",
+    "priceText": "2.189.000 VND",
     "image": "ChuaDoi.jpg",
-    "images": ["CanThơ_SocTrang2.png"],
+    "images": ["MTHT01_25.png","MTHT01_25_1.png"],
     "duration": "02 ngày 01 đêm",
     "pickup": "Sân bay hoặc khách sạn trung tâm",
     "departure": "Thứ 6 hàng tuần",

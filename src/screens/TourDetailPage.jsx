@@ -13,8 +13,34 @@ export default function TourDetailPage() {
   const { id } = useParams();
   const navigate = useNavigate();
 
+  // Hook 1: tìm tour
   const tour = useMemo(() => toursData.find((t) => t.id === id), [id]);
 
+  // Không phải hook
+  const resolveImage = (imgName) => resolveImageByName(imgName, FallbackImg);
+
+  // Hook 2: chuẩn bị danh sách ảnh poster (1 hoặc 2 ảnh)
+  const posterSrcs = useMemo(() => {
+    const arr = Array.isArray(tour?.images) ? tour.images.filter(Boolean) : [];
+    const list = arr.length ? arr : [tour?.image]; // fallback sang hero image nếu thiếu
+    return list
+      .filter(Boolean)
+      .map((name) => resolveImageByName(name, FallbackImg));
+  }, [tour]);
+
+  // Không phải hook
+  const priceDisplay =
+    tour?.priceText ||
+    (Number.isFinite(Number(tour?.price))
+      ? `${Math.round(Number(tour.price) / 1000).toLocaleString()}k VND`
+      : "Liên hệ");
+
+  const fanpageUrl = tour?.contact?.fanpage || "";
+  const goBookNow = () => {
+    if (tour) navigate(`/tours/${tour.id}/book`);
+  };
+
+  // Chỉ kiểm tra/return sau khi đã gọi xong mọi hook ở trên
   if (!tour) {
     return (
       <div className="tdp-root not-found">
@@ -25,25 +51,6 @@ export default function TourDetailPage() {
       </div>
     );
   }
-
-  // Hero vẫn dùng "image"
-  const resolveImage = (imgName) => resolveImageByName(imgName, FallbackImg);
-
-  // Poster lớn bên trái trong BODY: lấy ảnh đầu tiên từ "images"
-  const posterSrc = resolveImageByName(tour?.images?.[0], FallbackImg);
-
-  const priceDisplay =
-    tour.priceText ||
-    (Number.isFinite(Number(tour.price))
-      ? `${Math.round(Number(tour.price) / 1000).toLocaleString()}k VND`
-      : "Liên hệ");
-
-  // Fanpage link (nếu có)
-  const fanpageUrl = tour?.contact?.fanpage || "";
-
-  const goBookNow = () => {
-    navigate(`/tours/${tour.id}/book`);
-  };
 
   return (
     <div className="tdp-root">
@@ -86,14 +93,20 @@ export default function TourDetailPage() {
       {/* BODY: Poster to bên trái + nút bên phải */}
       <main className="tdp-body">
         <div className="tdp-grid poster-layout">
-          {/* Left: Poster ảnh to */}
+          {/* Left: 1-2 poster ảnh */}
           <section className="tdp-card tdp-poster-card">
-            <img
-              className="tdp-poster"
-              src={posterSrc}
-              alt={`${tour.title} poster`}
-              onError={(e) => (e.currentTarget.src = FallbackImg)}
-            />
+            <div className={`tdp-gallery ${posterSrcs.length > 1 ? "multi" : "single"}`}>
+              {posterSrcs.map((src, idx) => (
+                <img
+                  key={idx}
+                  className="tdp-poster"
+                  src={src}
+                  loading="lazy"
+                  alt={`${tour.title} poster ${idx + 1}`}
+                  onError={(e) => (e.currentTarget.src = FallbackImg)}
+                />
+              ))}
+            </div>
           </section>
 
           {/* Right: Action buttons */}
@@ -124,9 +137,7 @@ export default function TourDetailPage() {
                 ← Quay lại danh sách
               </button>
             </div>
-            <p className="side-note">
-              * Poster hiển thị đầy đủ thông tin tour.
-            </p>
+            <p className="side-note">* Poster hiển thị đầy đủ thông tin tour.</p>
           </aside>
         </div>
 
