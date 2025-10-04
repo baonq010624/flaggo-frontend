@@ -1,4 +1,3 @@
-// src/App.js
 import { useEffect } from "react";
 import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
 import CoverPage from "./screens/CoverPage";
@@ -16,6 +15,9 @@ import TourPage from "./screens/TourPage";
 import TourDetailPage from "./screens/TourDetailPage";
 import AdminPage from "./screens/AdminPage";
 import AdminRoute from "./components/AdminRoute";
+
+// ⬇️ NEW
+import BookingRedirect from "./screens/BookingRedirect";
 
 const API_BASE = process.env.REACT_APP_API_URL || "http://localhost:5000";
 
@@ -54,6 +56,10 @@ function App() {
         <Route path="/heritage/:id" element={<HeritageDetail />} />
         <Route path="/tours" element={<TourPage />} />
         <Route path="/tours/:id" element={<TourDetailPage />} />
+
+        {/* ⬇️ NEW: trang chuyển hướng đặt tour */}
+        <Route path="/tours/:id/book" element={<BookingRedirect />} />
+
         <Route path="/personalize" element={<div style={{ padding: "40px" }}>Cá nhân hóa - đang phát triển</div>} />
         <Route path="/shop" element={<div style={{ padding: "40px" }}>Mua sắm - đang phát triển</div>} />
 

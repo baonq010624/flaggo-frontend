@@ -1,0 +1,238 @@
+/* src/styles/BookingRedirect.css */
+:root{
+  --accent:#2f9e44;
+  --ink:#071028;
+  --muted:#6b7280;
+  --bg:#f6f8fa;
+  --card:#ffffff;
+
+  --ring: rgba(47,158,68,.28);
+  --shadow: 0 12px 32px rgba(6,24,40,.08);
+}
+
+.booking-redirect-root{
+  background: var(--bg);
+  min-height: 100vh;
+  padding: 36px 16px 48px;
+  display:flex;
+  align-items:flex-start;
+  justify-content:center;
+  font-family: "Segoe UI", Tahoma, sans-serif;
+  color: var(--ink);
+}
+
+.br-card{
+  width:100%;
+  max-width:1100px;
+  background: var(--card);
+  border:1px solid rgba(6,24,40,.06);
+  border-radius:18px;
+  box-shadow: var(--shadow);
+  padding:26px 22px;
+}
+
+/* ===== Header ===== */
+.br-head{
+  text-align:center;
+  margin-bottom:16px;
+}
+.br-eyebrow{
+  display:inline-block;
+  padding:6px 10px;
+  border-radius:999px;
+  background:#eef6f0;
+  color:#0b3c1d;
+  font-weight:800;
+  border:1px solid rgba(47,158,68,.18);
+}
+.br-head h1{
+  margin:10px 0 6px;
+  font-size:1.8rem;
+  letter-spacing:-.2px;
+  color:#072634;
+}
+.br-lead{
+  margin:0 auto;
+  max-width:820px;
+  color: var(--muted);
+}
+
+/* tour meta chips */
+.br-tourMeta{
+  display:flex;
+  justify-content:center;
+  gap:8px;
+  flex-wrap:wrap;
+  margin-top:12px;
+}
+.chip{
+  display:inline-block;
+  padding:6px 10px;
+  border-radius:999px;
+  background:#0b3c1d;
+  color:#fff;
+  font-weight:800;
+  font-size:.9rem;
+  border:1px solid rgba(6,24,40,.06);
+}
+.chip.ghost{
+  background:#f1f5f9;
+  color:#0f172a;
+  border:1px solid rgba(2,6,23,.08);
+}
+
+/* ===== Countdown ===== */
+.br-countdown{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:18px;
+  margin:18px 0 8px;
+  flex-wrap:wrap;
+}
+.cd-circle{
+  width:120px;
+  height:120px;
+  border-radius:50%;
+  background: radial-gradient(100% 100% at 50% 0%, #e6f6ea 0%, #d7f1df 100%);
+  border:2px solid rgba(47,158,68,.25);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  box-shadow:0 8px 24px rgba(47,158,68,.2);
+  position: relative;
+  isolation: isolate;
+}
+.cd-circle::after{
+  content:"";
+  position:absolute;
+  inset:-6px;
+  border-radius:50%;
+  border:2px dashed var(--ring);
+  opacity:.5;
+  pointer-events:none;
+}
+.cd-num{
+  font-size:2.4rem;
+  font-weight:900;
+  line-height:1;
+  color:#0b3c1d;
+}
+.cd-unit{
+  font-size:.85rem;
+  color:#0b3c1d;
+  opacity:.85;
+}
+.cd-actions{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  justify-content:center;
+}
+
+/* ===== Content ===== */
+.br-content{
+  display:grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap:16px;
+  margin-top:16px;
+}
+@media (max-width: 960px){
+  .br-content{ grid-template-columns: 1fr; }
+}
+
+.br-left, .br-right{
+  background:#fff;
+  border:1px solid rgba(6,24,40,.06);
+  border-radius:14px;
+  padding:16px;
+  box-shadow:0 8px 18px rgba(6,24,40,.04);
+}
+
+.br-left h3, .br-right h3{
+  margin:2px 0 10px;
+  font-size:1.12rem;
+  color:#072634;
+}
+.br-list{
+  margin:0 0 12px;
+  padding-left:18px;
+  color:#0f172a;
+  line-height:1.6;
+}
+.br-note{
+  background:#f1f5f9;
+  border:1px solid rgba(2,6,23,.08);
+  padding:10px;
+  border-radius:10px;
+  color:#0f172a;
+}
+
+/* message box */
+.msg-box{
+  width:100%;
+  min-height:170px;
+  border:1px solid rgba(6,24,40,.12);
+  border-radius:10px;
+  padding:10px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  resize:vertical;
+  color:#0f172a;
+  background:#fbfdfc;
+}
+
+/* right actions + privacy */
+.right-actions{
+  margin-top:10px;
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+}
+.privacy{
+  margin-top:8px;
+  font-size:.9rem;
+  color:#64748b;
+}
+
+/* ===== Footer ===== */
+.br-footer{
+  margin-top:18px;
+  display:flex;
+  gap:10px;
+  justify-content:flex-end;
+  flex-wrap:wrap;
+}
+
+/* ===== Buttons (theo tone site) ===== */
+.btn{
+  border:none;
+  padding:10px 14px;
+  border-radius:10px;
+  cursor:pointer;
+  font-weight:800;
+  background:#e2e8f0;
+  color:#0f172a;
+  transition: transform .12s ease, box-shadow .12s ease, filter .12s ease;
+}
+.btn:hover{ filter:brightness(.98); }
+.btn.primary{
+  background: var(--accent);
+  color:#fff;
+  box-shadow:0 12px 26px rgba(47,158,68,.2);
+}
+.btn.primary:hover{
+  filter:none;
+  transform: translateY(-1px);
+  box-shadow:0 16px 34px rgba(47,158,68,.26);
+}
+.btn.ghost{
+  background:transparent;
+  color:#0f172a;
+  border:1px solid rgba(6,24,40,.12);
+}
+.btn.outline{
+  background:transparent;
+  color:#0f172a;
+  border:1px solid rgba(6,24,40,.18);
+}

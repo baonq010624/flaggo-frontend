@@ -1,3 +1,4 @@
+// src/screens/TourDetailPage.jsx
 import React, { useMemo } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import "../../src/styles/TourDetailPage.css";
@@ -39,6 +40,10 @@ export default function TourDetailPage() {
 
   // Fanpage link (nếu có)
   const fanpageUrl = tour?.contact?.fanpage || "";
+
+  const goBookNow = () => {
+    navigate(`/tours/${tour.id}/book`);
+  };
 
   return (
     <div className="tdp-root">
@@ -95,7 +100,9 @@ export default function TourDetailPage() {
           <aside className="tdp-card tdp-side-card">
             <h3 className="side-title">Hành động nhanh</h3>
             <div className="side-actions">
-              <button className="btn primary btn-lg">Đặt ngay</button>
+              <button className="btn primary btn-lg" onClick={goBookNow}>
+                Đặt ngay
+              </button>
               {fanpageUrl ? (
                 <a
                   className="btn outline btn-lg"
@@ -118,14 +125,16 @@ export default function TourDetailPage() {
               </button>
             </div>
             <p className="side-note">
-              * Poster hiển thị đủ thông tin chi tiết của tour.
+              * Poster hiển thị đầy đủ thông tin tour.
             </p>
           </aside>
         </div>
 
         {/* bottom actions (mobile-friendly) */}
         <div className="tdp-actions">
-          <button className="btn primary">Đặt ngay</button>
+          <button className="btn primary" onClick={goBookNow}>
+            Đặt ngay
+          </button>
           {fanpageUrl ? (
             <a className="btn outline" href={fanpageUrl} target="_blank" rel="noreferrer">
               Fanpage
