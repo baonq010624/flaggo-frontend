@@ -1,25 +1,24 @@
+// src/auth/AuthContext.jsx
 import React, { createContext, useEffect, useState } from "react";
 import { refreshRequest } from "./authService";
 
 export const AuthContext = createContext();
 
-const API_BASE = process.env.REACT_APP_API_URL || "http://localhost:5000";
+const API_BASE = (process.env.REACT_APP_API_URL || "http://localhost:5000").replace(/\/+$/, "");
 
 export const AuthProvider = ({ children }) => {
-  // 1) Rehydrate ngay từ localStorage
-  const [user, setUser] = useState(() => {
-    try { return JSON.parse(localStorage.getItem("user") || "null"); } catch { return null; }
+  const [user,   setUser] = useState(() => {
+    try { return JSON.parse(localStorage.getItem("user")) || null; } catch { return null; }
   });
   const [accessToken, setAccessToken] = useState(() => localStorage.getItem("accessToken") || "");
   const [loading, setLoading] = useState(true);
 
-  // 2) Sau khi mount, gọi refresh ở nền
+  // Init: cố refresh bằng cookie; nếu fail thì vẫn giữ localStorage hiện tại (không logout cứng)
   useEffect(() => {
     let mounted = true;
-
-    const doRefresh = async () => {
+    (async () => {
       try {
-        const data = await refreshRequest(); // yêu cầu cookie cross-site
+        const data = await refreshRequest(); // dùng cookie httpOnly
         if (!mounted) return;
         if (data.accessToken) {
           setAccessToken(data.accessToken);
@@ -30,20 +29,12 @@ export const AuthProvider = ({ children }) => {
           localStorage.setItem("user", JSON.stringify(data.user));
         }
       } catch (e) {
-        // ⚠️ ĐIỂM KHÁC BIỆT:
-        // Không xoá localStorage ngay nếu refresh fail.
-        // Giữ trạng thái từ LS (nếu còn token chưa hết hạn) để tránh 'đăng xuất' sau reload.
-        // Có thể log nhẹ để debug:
-        // console.debug("Refresh failed:", e?.status, e?.message);
+        // Không có cookie / refresh fail → vẫn giữ nguyên trạng hiện tại từ localStorage
+        // (tránh “bị đăng xuất” khi F5)
       } finally {
         if (mounted) setLoading(false);
       }
-    };
-
-    // Nếu đã có LS token -> hiển thị ngay rồi refresh nền
-    // Nếu chưa có -> vẫn thử refresh (có thể user còn cookie)
-    doRefresh();
-
+    })();
     return () => { mounted = false; };
   }, []);
 
@@ -55,7 +46,9 @@ export const AuthProvider = ({ children }) => {
   };
 
   const doLogout = async () => {
-    try { await fetch(`${API_BASE}/api/auth/logout`, { method: "POST", credentials: "include" }); } catch {}
+    try {
+      await fetch(`${API_BASE}/api/auth/logout`, { method: "POST", credentials: "include" });
+    } catch {}
     setAccessToken("");
     setUser(null);
     localStorage.removeItem("accessToken");
