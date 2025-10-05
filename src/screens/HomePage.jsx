@@ -1,4 +1,4 @@
-// src/screens/Homepage.jsx
+// src/screens/HomePage.jsx
 import React, { useState, useMemo, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/HomePage.css";
@@ -105,7 +105,8 @@ export default function HomePage() {
       <header className="hg-hero">
         <div className="hg-hero-inner hg-container">
           <div className="hg-hero-left">
-            <h1>Khám phá Di tích & Thắng cảnh — Cần Thơ</h1>
+            {/* Giữ nguyên 1 dòng + NBSP giữa “Cần Thơ” */}
+            <h1>Khám phá Di tích & Thắng cảnh — Cần&nbsp;Thơ</h1>
             <p className="hg-lead">
               Hệ thống thông tin tập trung về các di tích, thắng cảnh và điểm
               văn hóa tại tỉnh Cần Thơ. Di chuột (hover) vào một điểm để xem
@@ -113,13 +114,18 @@ export default function HomePage() {
             </p>
             <div className="hg-hero-actions">
               <button
-                className="btn primary"
+                className="btn primary hero"
                 onClick={() => window.scrollTo({ top: 600, behavior: "smooth" })}
               >
-                Khám phá ngay ↓
+                <span className="btn-label">Khám phá ngay</span>
+                <span className="btn-ico">↓</span>
               </button>
-              <button className="btn ghost" onClick={() => navigate("/information")}>
-                Xem thông tin chung
+
+              <button
+                className="btn ghost hero"
+                onClick={() => navigate("/information")}
+              >
+                <span className="btn-label">Xem thông tin chung</span>
               </button>
             </div>
           </div>

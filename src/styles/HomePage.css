@@ -1,5 +1,4 @@
 /* src/styles/HomePage.css */
-/* Modern, clean layout for HomePage (FlagGo) */
 
 /* variables */
 :root {
@@ -42,39 +41,87 @@
   align-items: center;
   padding: 48px 20px;
 }
-.hg-hero-left { max-width: 780px; }
+.hg-hero-left { max-width: 850px; }
+
+/* Giữ H1 luôn một dòng ở màn hình vừa & lớn */
 .hg-hero-left h1 {
-  font-size: 2.6rem;
-  margin: 0 0 12px;
+  font-size: clamp(2rem, 4.5vw, 2.8rem);
+  margin: 0 0 14px;
   line-height: 1.02;
   letter-spacing: -0.5px;
+  white-space: nowrap;        /* ← giữ cả câu trên 1 dòng */
+  text-shadow: 0 2px 14px rgba(0,0,0,.25);
 }
+
 .hg-lead {
-  color: rgba(255, 255, 255, 0.9);
+  color: rgba(255, 255, 255, 0.92);
   font-size: 1.05rem;
-  margin-bottom: 18px;
-  max-width: 680px;
+  margin-bottom: 22px;
+  max-width: 700px;
 }
-.hg-hero-actions { display: flex; gap: 12px; }
+
+/* HERO BUTTONS */
+.hg-hero-actions { 
+  display: flex; 
+  gap: 14px; 
+  flex-wrap: wrap;
+}
+
+/* Base button */
 .btn {
   border: none;
-  padding: 10px 16px;
-  border-radius: 10px;
+  padding: 12px 18px;
+  border-radius: 999px;
   cursor: pointer;
-  font-weight: 600;
-  transition: transform .18s ease, box-shadow .18s ease, opacity .18s ease;
+  font-weight: 700;
+  letter-spacing: .2px;
+  transition: transform .18s ease, box-shadow .18s ease, opacity .18s ease, background .18s ease, border-color .18s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
 }
-.btn.primary {
-  background: var(--accent);
+
+/* Primary (hero) */
+.btn.primary.hero {
+  background: linear-gradient(180deg, #2f9e44, #29853a);
   color: #fff;
-  box-shadow: 0 10px 28px rgba(47, 158, 68, 0.12);
+  box-shadow: 0 14px 32px rgba(47,158,68,.28), inset 0 1px 0 rgba(255,255,255,.2);
+  border: 1px solid rgba(255,255,255,.1);
 }
-.btn.primary:hover { transform: translateY(-3px); }
-.btn.ghost {
-  background: transparent;
+.btn.primary.hero:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 20px 44px rgba(47,158,68,.36);
+}
+.btn.primary.hero:active {
+  transform: translateY(0);
+  box-shadow: 0 12px 28px rgba(47,158,68,.26);
+}
+.btn.primary.hero:focus-visible {
+  outline: 3px solid rgba(255,255,255,.45);
+  outline-offset: 2px;
+}
+
+/* Ghost (hero) – kính mờ */
+.btn.ghost.hero {
+  background: rgba(255,255,255,.12);
   color: #fff;
-  border: 1px solid rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(255,255,255,.24);
+  backdrop-filter: blur(6px);
 }
+.btn.ghost.hero:hover {
+  background: rgba(255,255,255,.18);
+  transform: translateY(-1px);
+}
+.btn.ghost.hero:active {
+  transform: translateY(0);
+}
+.btn.ghost.hero:focus-visible {
+  outline: 3px solid rgba(255,255,255,.45);
+  outline-offset: 2px;
+}
+.btn-label { white-space: nowrap; }
+.btn-ico { font-weight: 900; transform: translateY(-1px); }
 
 /* subtle animated gradient strip */
 .hg-hero-accent {
@@ -225,7 +272,7 @@
   border: 1px solid rgba(6,24,40,0.12);
   color: #072634;
   padding: 8px 12px;
-  border-radius: 8px;
+  border-radius: 999px;
 }
 .btn[disabled] { opacity: 0.45; cursor: not-allowed; }
 
@@ -247,7 +294,7 @@
 .about-card h4 { margin-bottom: 8px; font-size: 1.1rem; color: var(--accent); }
 .about-card p { font-size: 0.95rem; color: #334155; }
 
-/* responsive */
+/* responsive breakpoints */
 @media (max-width: 1100px) {
   .hg-division-grid-paged { grid-template-columns: repeat(3, 1fr); }
 }
@@ -263,8 +310,25 @@
     width: auto !important;
     transform: none !important;
   }
+  /* Nút xếp dọc gọn khi màn hẹp */
+  .hg-hero-actions { 
+    flex-direction: column; 
+    align-items: flex-start;
+  }
+  .btn.primary.hero, .btn.ghost.hero {
+    width: fit-content;
+  }
 }
 @media (max-width: 560px) {
   .hg-division-grid-paged { grid-template-columns: 1fr; }
   .preview-image img { height: 120px; }
+}
+/* Rất hẹp: cho phép H1 xuống dòng, vẫn giữ “Cần Thơ” đi chung */
+@media (max-width: 420px) {
+  .hg-hero-left h1 {
+    white-space: normal;     /* cho phép wrap */
+    word-break: keep-all;    /* tránh bẻ chữ khó coi */
+    line-height: 1.12;       /* tăng giãn dòng khi wrap */
+    font-size: clamp(1.6rem, 7vw, 2.2rem);
+  }
 }
