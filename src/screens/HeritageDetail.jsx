@@ -1,14 +1,13 @@
-// src/screens/HeritageDetail.jsx
-import React, { useMemo, useEffect, useState } from "react";
+import React, { useMemo, useEffect, useState, useContext } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import heritageData from "../data/heritages.json";
 import "../styles/HeritageDetail.css";
-
-// Ảnh fallback khi không tìm thấy ảnh theo tên trong JSON
 import FallbackImg from "../images/VanHoa.jpg";
-
-// Helper auto-map ảnh theo tên file (đã tạo ở src/utils/images.js)
 import { resolveImageByName } from "../utils/images";
+
+// ⬇️ THÊM:
+import { AuthContext } from "../auth/AuthContext";
+import { apiFetch } from "../utils/apiFetch";
 
 const API_BASE = (process.env.REACT_APP_API_URL || "http://localhost:5000").replace(/\/+$/, "");
 
@@ -33,15 +32,15 @@ export default function HeritageDetail() {
   const [loading, setLoading] = useState(true);
   const [favMsg, setFavMsg] = useState("");
 
-  // Tìm heritage theo id trong dataset
+  // ⬇️ THÊM:
+  const { accessToken, setAccessToken } = useContext(AuthContext);
+
   const heritage = useMemo(() => {
     return heritageData.find((h) => (h?.id ?? "").toString() === (id ?? "").toString());
   }, [id]);
 
-  // Resolve ảnh theo tên trong JSON, fallback nếu không có
   const resolveImage = (imgName) => resolveImageByName(imgName, FallbackImg);
 
-  // trạng thái đã "yêu thích" của client cho heritage này
   useEffect(() => {
     let mounted = true;
     const run = async () => {
@@ -63,10 +62,8 @@ export default function HeritageDetail() {
       }
     };
     run();
-    return () => {
-      mounted = false;
-    };
-  }, [heritage]); // chỉ phụ thuộc id là đủ
+    return () => { mounted = false; };
+  }, [heritage]);
 
   const handleToggleFavorite = async () => {
     if (!heritage || loading) return;
@@ -75,6 +72,8 @@ export default function HeritageDetail() {
     try {
       const clientId = getClientId();
       const want = !voted;
+
+      // 1) Giữ behavior cũ: toggle đếm theo clientId
       const res = await fetch(`${API_BASE}/api/track/favorite/toggle`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -90,6 +89,29 @@ export default function HeritageDetail() {
       if (!res.ok || !data.ok) throw new Error("toggle failed");
       setVoted(!!data.voted);
       setFavMsg(want ? "Đã thêm vào yêu thích." : "Đã bỏ yêu thích.");
+
+      // 2) MỚI: nếu user đã đăng nhập → lưu/bỏ lưu vào bộ sưu tập riêng
+      if (accessToken) {
+        try {
+          await apiFetch(
+            "/api/user/favorites/toggle",
+            {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({
+                heritageId: heritage.id,
+                name: heritage.name,
+                vote: want,
+              }),
+            },
+            accessToken,
+            (newTk) => setAccessToken?.(newTk)
+          );
+        } catch (e) {
+          // Không ảnh hưởng trải nghiệm nếu call phụ này lỗi
+          console.warn("user favorites toggle failed (kept silent)", e);
+        }
+      }
     } catch {
       setFavMsg("Không thể cập nhật. Thử lại sau nhé.");
     } finally {
@@ -101,9 +123,7 @@ export default function HeritageDetail() {
     return (
       <div className="heritage-detail container">
         <h2>Không tìm thấy di tích</h2>
-        <button className="btn ghost" onClick={() => navigate(-1)}>
-          ← Quay lại
-        </button>
+        <button className="btn ghost" onClick={() => navigate(-1)}>← Quay lại</button>
       </div>
     );
   }
@@ -140,7 +160,6 @@ export default function HeritageDetail() {
           <p>{heritage.description}</p>
         </section>
 
-        {/* Thông tin cần thiết: giờ, giá, di chuyển */}
         {(heritage.hours || heritage.price || heritage.transport) && (
           <section>
             <h2>Thông tin cần thiết</h2>
@@ -167,40 +186,26 @@ export default function HeritageDetail() {
           </section>
         )}
 
-        {/* Điểm nhấn */}
         {Array.isArray(heritage.highlights) && heritage.highlights.length > 0 && (
           <section>
             <h2>Điểm nhấn</h2>
             <ul className="hi-lights">
-              {heritage.highlights.map((t, i) => (
-                <li key={i}>{t}</li>
-              ))}
+              {heritage.highlights.map((t, i) => <li key={i}>{t}</li>)}
             </ul>
           </section>
         )}
 
-        {/* Địa điểm + Loại */}
         {(heritage.location || heritage.category) && (
           <section>
             <h2>Thông tin thêm</h2>
-            {heritage.location && (
-              <p>
-                📍 <strong>Địa điểm:</strong> {heritage.location}
-              </p>
-            )}
-            {heritage.category && (
-              <p>
-                🏷️ <strong>Loại:</strong> {heritage.category}
-              </p>
-            )}
+            {heritage.location && <p>📍 <strong>Địa điểm:</strong> {heritage.location}</p>}
+            {heritage.category && <p>🏷️ <strong>Loại:</strong> {heritage.category}</p>}
           </section>
         )}
       </main>
 
       <div className="back-btn">
-        <button className="btn ghost" onClick={() => navigate(-1)}>
-          ← Quay lại
-        </button>
+        <button className="btn ghost" onClick={() => navigate(-1)}>← Quay lại</button>
       </div>
     </div>
   );

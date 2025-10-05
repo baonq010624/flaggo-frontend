@@ -18,6 +18,7 @@ import AdminRoute from "./components/AdminRoute";
 
 // ⬇️ NEW
 import BookingRedirect from "./screens/BookingRedirect";
+import PersonalizePage from "./screens/PersonalizePage";
 
 const API_BASE = process.env.REACT_APP_API_URL || "http://localhost:5000";
 
@@ -60,8 +61,7 @@ function App() {
         {/* ⬇️ NEW: trang chuyển hướng đặt tour */}
         <Route path="/tours/:id/book" element={<BookingRedirect />} />
 
-        <Route path="/personalize" element={<div style={{ padding: "40px" }}>Cá nhân hóa - đang phát triển</div>} />
-        <Route path="/shop" element={<div style={{ padding: "40px" }}>Mua sắm - đang phát triển</div>} />
+        <Route path="/personalize" element={<PersonalizePage />} />
 
         {/* Admin route */}
         <Route path="/admin" element={
