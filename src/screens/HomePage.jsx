@@ -109,7 +109,7 @@ export default function HomePage() {
             <h1>Khám phá Di tích & Thắng cảnh — Cần&nbsp;Thơ</h1>
             <p className="hg-lead">
               Hệ thống thông tin tập trung về các di tích, thắng cảnh và điểm
-              văn hóa tại tỉnh Cần Thơ. Di chuột (hover) vào một điểm để xem
+              văn hóa tại tỉnh Cần Thơ. Di chuột vào một điểm để xem
               preview, click để xem chi tiết.
             </p>
             <div className="hg-hero-actions">
