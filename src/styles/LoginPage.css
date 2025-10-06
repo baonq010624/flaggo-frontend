@@ -207,6 +207,35 @@
   }
 }
 
+/* Thêm vào cuối file hiện tại của bạn, giữ nguyên phần cũ */
+
+.form-error {
+  background: rgba(255, 77, 79, 0.14);
+  border: 1px solid rgba(255, 77, 79, 0.35);
+  color: #ffdddd;
+  padding: 10px 12px;
+  border-radius: 10px;
+  margin-bottom: 16px;
+  font-size: 0.95rem;
+}
+
+.input-row.has-error input {
+  border: 1px solid rgba(255, 77, 79, 0.75);
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.error-text {
+  margin-top: 6px;
+  font-size: 0.9rem;
+  color: #ffb8b8;
+}
+
+.login-btn[disabled] {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+
 /* Ẩn footer riêng cho trang login */
 .login-page-root + footer {
   display: none !important;

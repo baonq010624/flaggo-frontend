@@ -64,9 +64,6 @@ export default function TourDetailPage() {
         <div className="tdp-hero-overlay">
           <div className="tdp-hero-head">
             {tour.duration && <span className="tdp-badge">{tour.duration}</span>}
-            {tour.capacity ? (
-              <span className="tdp-badge ghost">{tour.capacity} khách</span>
-            ) : null}
           </div>
           <h1>{tour.title}</h1>
 

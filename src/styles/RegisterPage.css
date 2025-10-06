@@ -206,7 +206,36 @@
     margin-top: 30px;
   }
 }
+.form-error {
+  background: rgba(255, 77, 79, 0.14);
+  border: 1px solid rgba(255, 77, 79, 0.35);
+  color: #ffdddd;
+  padding: 10px 12px;
+  border-radius: 10px;
+  margin-bottom: 16px;
+  font-size: 0.95rem;
+}
 
+/* Viền đỏ khi có lỗi field */
+.input-row.has-error input {
+  border: 1px solid rgba(255, 77, 79, 0.75);
+  background: rgba(255, 255, 255, 0.12);
+}
+
+/* Text lỗi dưới input */
+.error-text {
+  margin-top: 6px;
+  font-size: 0.9rem;
+  color: #ffb8b8;
+}
+
+/* Nút submit khi disabled */
+.login-btn[disabled] {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Giữ nền & layout gốc của bạn: phần dưới là bản cũ của bạn (không xóa) */
 /* Ẩn footer riêng cho trang login */
 .login-page-root + footer {
   display: none !important;
