@@ -21,7 +21,7 @@
   z-index: 3; /* đảm bảo logo luôn trên cùng */
 }
 .logo-image {
-  height: 48px;
+  height: 65px;
   object-fit: contain;
 }
 

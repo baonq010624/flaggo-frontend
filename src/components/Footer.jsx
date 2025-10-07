@@ -8,12 +8,12 @@ const Footer = () => {
       <div className="footer-content">
         <div className="footer-section">
           <h4>Về FlagGo</h4>
-          <p>Dự án giới thiệu du lịch miền Nam Việt Nam sau sáp nhập 2024.</p>
+          <p>Dự án giới thiệu du lịch miền Nam Việt Nam sau sáp nhập 2025.</p>
         </div>
         <div className="footer-section">
           <h4>Liên hệ</h4>
           <p>Email: contact@flaggo.vn</p>
-          <p>Điện thoại: 0123 456 789</p>
+          <p>Điện thoại: 0946 840 606</p>
         </div>
         <div className="footer-section">
           <h4>Địa chỉ</h4>
