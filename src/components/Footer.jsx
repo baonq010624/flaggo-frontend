@@ -12,7 +12,7 @@ const Footer = () => {
         </div>
         <div className="footer-section">
           <h4>Liên hệ</h4>
-          <p>Email: flaggo@gmail.com</p>
+          <p>Email: vsouth1605@gmail.com</p>
           <p>Điện thoại: 0946 840 606</p>
         </div>
         <div className="footer-section">

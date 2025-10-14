@@ -1,18 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
- <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-W74LMHKWRB"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-W74LMHKWRB');
-</script>
+<html lang="vi">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>FlagGo Website</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-W74LMHKWRB"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){ dataLayer.push(arguments); }
+      gtag('js', new Date());
+
+      // Lượt page_view đầu tiên
+      gtag('config', 'G-W74LMHKWRB', {
+        send_page_view: true
+      });
+    </script>
   </head>
   <body>
     <div id="root"></div>
