@@ -12,6 +12,24 @@ function formatDateTime(ts) {
   try { return new Date(ts).toLocaleString(); } catch { return ts; }
 }
 
+// ---- GA helpers ----
+function trackEvent(name, params = {}) {
+  try {
+    if (typeof window !== "undefined" && typeof window.gtag === "function") {
+      window.gtag("event", name, params);
+    }
+  } catch {}
+}
+function getTrafficSource() {
+  try {
+    if (document.referrer) {
+      const u = new URL(document.referrer);
+      return u.host || "(referrer)";
+    }
+  } catch {}
+  return "(direct)";
+}
+
 export default function PersonalizePage() {
   const { user, accessToken, setAccessToken } = useContext(AuthContext);
   const [items, setItems] = useState([]);
@@ -61,6 +79,18 @@ export default function PersonalizePage() {
     })();
     return () => { mounted = false; };
   }, [user, accessToken, setAccessToken]);
+
+  // GA: Bắn event khi trang đã load xong (để có total_items)
+  useEffect(() => {
+    if (!loading) {
+      trackEvent("view_personalize", {
+        logged_in: !!user,
+        total_items: items.length,
+        traffic_source: getTrafficSource(),
+      });
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [loading]); // chạy một lần sau khi loading -> false
 
   // Filter + sort
   const filtered = useMemo(() => {
@@ -268,7 +298,7 @@ export default function PersonalizePage() {
           ))}
         </div>
       ) : (
-        // ===== New, beautiful List view =====
+        // ===== List view =====
         <div className="pz-list">
           {filtered.map((it) => (
             <div key={it.heritageId} className="pz-card pz-list-item">

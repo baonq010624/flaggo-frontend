@@ -1,3 +1,4 @@
+// src/screens/HeritageDetail.jsx
 import React, { useMemo, useEffect, useState, useContext } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import heritageData from "../data/heritages.json";
@@ -10,6 +11,26 @@ import { AuthContext } from "../auth/AuthContext";
 import { apiFetch } from "../utils/apiFetch";
 
 const API_BASE = (process.env.REACT_APP_API_URL || "http://localhost:5000").replace(/\/+$/, "");
+
+// ---- GA helper (an toàn khi GA chưa tải xong) ----
+function trackEvent(name, params = {}) {
+  try {
+    if (typeof window !== "undefined" && typeof window.gtag === "function") {
+      window.gtag("event", name, params);
+    }
+  } catch {}
+}
+
+// cố gắng bắt nguồn truy cập (Facebook, Google, …) đơn giản qua referrer host
+function getTrafficSource() {
+  try {
+    if (document.referrer) {
+      const u = new URL(document.referrer);
+      return u.host || "(referrer)";
+    }
+  } catch {}
+  return "(direct)";
+}
 
 function getClientId() {
   try {
@@ -40,6 +61,18 @@ export default function HeritageDetail() {
   }, [id]);
 
   const resolveImage = (imgName) => resolveImageByName(imgName, FallbackImg);
+
+  // ---- GA: log view_heritage_detail khi có dữ liệu di tích ----
+  useEffect(() => {
+    if (!heritage) return;
+    trackEvent("view_heritage_detail", {
+      heritage_id: heritage.id,
+      heritage_name: heritage.name,
+      location: heritage.location || "",
+      category: heritage.category || "",
+      traffic_source: getTrafficSource(),
+    });
+  }, [heritage]);
 
   useEffect(() => {
     let mounted = true;
@@ -89,6 +122,15 @@ export default function HeritageDetail() {
       if (!res.ok || !data.ok) throw new Error("toggle failed");
       setVoted(!!data.voted);
       setFavMsg(want ? "Đã thêm vào yêu thích." : "Đã bỏ yêu thích.");
+
+      // ---- GA: click_favorite (save/unsave) ----
+      trackEvent("click_favorite", {
+        heritage_id: heritage.id,
+        heritage_name: heritage.name,
+        action: want ? "save" : "unsave",
+        voted: want,
+        traffic_source: getTrafficSource(),
+      });
 
       // 2) MỚI: nếu user đã đăng nhập → lưu/bỏ lưu vào bộ sưu tập riêng
       if (accessToken) {

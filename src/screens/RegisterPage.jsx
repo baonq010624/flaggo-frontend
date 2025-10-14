@@ -1,9 +1,28 @@
+// src/screens/RegisterPage.jsx
 import React, { useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/RegisterPage.css"; // dùng đúng file RegisterPage.css
 import logo from "../images/Logo.png";
 
 const API_BASE = (process.env.REACT_APP_API_URL || "http://localhost:5000").replace(/\/+$/, "");
+
+// ---- GA helpers (an toàn khi GA chưa sẵn sàng) ----
+function trackEvent(name, params = {}) {
+  try {
+    if (typeof window !== "undefined" && typeof window.gtag === "function") {
+      window.gtag("event", name, params);
+    }
+  } catch {}
+}
+function getTrafficSource() {
+  try {
+    if (document.referrer) {
+      const u = new URL(document.referrer);
+      return u.host || "(referrer)";
+    }
+  } catch {}
+  return "(direct)";
+}
 
 function RegisterPage() {
   const [name, setName] = useState("");
@@ -20,10 +39,9 @@ function RegisterPage() {
 
   // ========= Validators =========
   const validators = useMemo(() => {
-    const isEmail = (v) =>
-      /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim());
+    const isEmail = (v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim());
 
-    // VN phone: 0xxxxxxxxx (10 số) hoặc +84xxxxxxxxx (9-10 số theo đầu số)
+    // VN phone: 0xxxxxxxxx (10 số) hoặc +84xxxxxxxxx
     const isVNPhone = (v) => {
       const raw = v.replace(/\s|[-().]/g, "");
       if (!raw) return true; // optional
@@ -57,17 +75,11 @@ function RegisterPage() {
   }, []);
 
   const runValidation = (partial = {}) => {
-    const next = {
-      name,
-      email,
-      password,
-      phone,
-      ...partial,
-    };
+    const next = { name, email, password, phone, ...partial };
     const e = validators.validate(next);
     setErrors(e);
     return e;
-  };
+    };
 
   const onBlur = (field) => {
     setTouched((t) => ({ ...t, [field]: true }));
@@ -90,6 +102,12 @@ function RegisterPage() {
       return;
     }
 
+    // GA: user nhấn submit form đăng ký
+    trackEvent("register_submit", {
+      method: "email_password",
+      traffic_source: getTrafficSource(),
+    });
+
     setSubmitting(true);
 
     try {
@@ -108,15 +126,31 @@ function RegisterPage() {
       const data = await res.json();
 
       if (res.ok) {
+        // GA: đăng ký thành công
+        trackEvent("register_success", {
+          method: "email_password",
+          traffic_source: getTrafficSource(),
+        });
+
         // lưu luôn để vào app liền tay (backend trả accessToken + user)
         localStorage.setItem("accessToken", data.accessToken);
         if (data.user) localStorage.setItem("user", JSON.stringify(data.user));
+
         navigate("/homepage");
       } else {
+        // GA: đăng ký thất bại
+        trackEvent("register_failed", {
+          reason: data?.message ? String(data.message).slice(0, 80) : "unknown",
+          traffic_source: getTrafficSource(),
+        });
         setServerError(data.message || "Đăng ký thất bại. Vui lòng thử lại.");
       }
     } catch (err) {
       console.error(err);
+      trackEvent("register_failed", {
+        reason: "network_error",
+        traffic_source: getTrafficSource(),
+      });
       setServerError("Không thể kết nối máy chủ. Kiểm tra mạng và thử lại.");
     } finally {
       setSubmitting(false);

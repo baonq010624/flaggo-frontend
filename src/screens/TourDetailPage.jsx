@@ -1,5 +1,5 @@
 // src/screens/TourDetailPage.jsx
-import React, { useMemo } from "react";
+import React, { useMemo, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import "../../src/styles/TourDetailPage.css";
 import toursData from "../data/tours.json";
@@ -8,6 +8,27 @@ import toursData from "../data/tours.json";
 import FallbackImg from "../images/VanHoa.jpg";
 // Helper auto-map ảnh theo tên file (đã tạo ở src/utils/images.js)
 import { resolveImageByName } from "../utils/images";
+
+// ---- GA helpers ----
+function trackEvent(name, params = {}) {
+  try {
+    if (typeof window !== "undefined" && typeof window.gtag === "function") {
+      window.gtag("event", name, params);
+    }
+  } catch {}
+}
+function getTrafficSource() {
+  try {
+    const cur = new URL(window.location.href);
+    const utm = cur.searchParams.get("utm_source");
+    if (utm) return utm;
+    if (document.referrer) {
+      const u = new URL(document.referrer);
+      return u.host || "(referrer)";
+    }
+  } catch {}
+  return "(direct)";
+}
 
 export default function TourDetailPage() {
   const { id } = useParams();
@@ -35,9 +56,52 @@ export default function TourDetailPage() {
       ? `${Math.round(Number(tour.price) / 1000).toLocaleString()}k VND`
       : "Liên hệ");
 
+  // GA: view detail khi đã có tour
+  useEffect(() => {
+    if (!tour) return;
+    trackEvent("view_tour_detail", {
+      tour_id: tour.id,
+      tour_title: tour.title,
+      price_text: priceDisplay,
+      traffic_source: getTrafficSource(),
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [tour?.id]);
+
   const fanpageUrl = tour?.contact?.fanpage || "";
+
   const goBookNow = () => {
-    if (tour) navigate(`/tours/${tour.id}/book`);
+    if (!tour) return;
+    // GA click đặt tour
+    trackEvent("click_book_now", {
+      tour_id: tour.id,
+      tour_title: tour.title,
+      price_text: priceDisplay,
+      traffic_source: getTrafficSource(),
+      location: "detail_page_top", // có 2 nút: top & bottom; nút dưới sẽ gán khác
+    });
+    navigate(`/tours/${tour.id}/book`);
+  };
+
+  const goBookNowBottom = () => {
+    if (!tour) return;
+    trackEvent("click_book_now", {
+      tour_id: tour.id,
+      tour_title: tour.title,
+      price_text: priceDisplay,
+      traffic_source: getTrafficSource(),
+      location: "detail_page_bottom",
+    });
+    navigate(`/tours/${tour.id}/book`);
+  };
+
+  const onClickFanpage = () => {
+    if (!tour) return;
+    trackEvent("click_tour_fanpage", {
+      tour_id: tour.id,
+      tour_title: tour.title,
+      traffic_source: getTrafficSource(),
+    });
   };
 
   // Chỉ kiểm tra/return sau khi đã gọi xong mọi hook ở trên
@@ -119,6 +183,7 @@ export default function TourDetailPage() {
                   href={fanpageUrl}
                   target="_blank"
                   rel="noreferrer"
+                  onClick={onClickFanpage}
                 >
                   Fanpage
                 </a>
@@ -140,11 +205,11 @@ export default function TourDetailPage() {
 
         {/* bottom actions (mobile-friendly) */}
         <div className="tdp-actions">
-          <button className="btn primary" onClick={goBookNow}>
+          <button className="btn primary" onClick={goBookNowBottom}>
             Đặt ngay
           </button>
           {fanpageUrl ? (
-            <a className="btn outline" href={fanpageUrl} target="_blank" rel="noreferrer">
+            <a className="btn outline" href={fanpageUrl} target="_blank" rel="noreferrer" onClick={onClickFanpage}>
               Fanpage
             </a>
           ) : null}
