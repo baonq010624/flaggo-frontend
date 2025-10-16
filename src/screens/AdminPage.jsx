@@ -4,13 +4,21 @@ import "../styles/AdminPage.css";
 import { apiFetch } from "../utils/apiFetch";
 import { AuthContext } from "../auth/AuthContext";
 
+// Recharts
+import {
+  ResponsiveContainer,
+  LineChart, Line,
+  CartesianGrid, XAxis, YAxis, Tooltip, Legend,
+  BarChart, Bar,
+} from "recharts";
+
 export default function AdminPage() {
   const { accessToken } = useContext(AuthContext) || {};
   const [stats, setStats] = useState(null);
   const [status, setStatus] = useState("idle"); // idle | loading | error
 
   // Visits
-  const [mode, setMode] = useState("day"); // day | month | year
+  const [mode, setMode] = useState("day"); // day | week | month | year
   const [limit, setLimit] = useState(30);
   const [chart, setChart] = useState({ rows: [], mode: "day" });
   const [chartStatus, setChartStatus] = useState("idle");
@@ -85,7 +93,7 @@ export default function AdminPage() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [mode, limit, accessToken]);
 
-  // Favorites chart (memo hóa để thỏa eslint exhaustive-deps)
+  // Favorites chart
   const loadFavs = useCallback(async () => {
     setFavStatus("loading");
     try {
@@ -115,29 +123,35 @@ export default function AdminPage() {
     loadFavs();
   }, [loadFavs]);
 
-  // Chart sizing for visits
-  const { maxValue, bars } = useMemo(() => {
-    const rows = chart?.rows || [];
-    const maxValue = rows.reduce((m, r) => Math.max(m, r.value || 0), 0) || 1;
-    const bars = rows.map((r) => ({
-      label: r.label,
-      value: r.value,
-      pct: Math.round(((r.value || 0) / maxValue) * 100),
-    }));
-    return { maxValue, bars };
-  }, [chart]);
+  // Chuẩn hóa dữ liệu cho Recharts
+  const visitSeries = useMemo(
+    () => (chart?.rows || []).map((r) => ({ label: r.label, value: Number(r.value) || 0 })),
+    [chart]
+  );
+  const favSeries = useMemo(
+    () => (favData?.rows || []).map((r) => ({ label: r.label, value: Number(r.value) || 0 })),
+    [favData]
+  );
 
-  // Chart sizing for favorites
-  const { favMax, favBars } = useMemo(() => {
-    const rows = favData?.rows || [];
-    const favMax = rows.reduce((m, r) => Math.max(m, r.value || 0), 0) || 1;
-    const favBars = rows.map((r) => ({
-      label: r.label,
-      value: r.value,
-      pct: Math.round(((r.value || 0) / favMax) * 100),
-    }));
-    return { favMax, favBars };
-  }, [favData]);
+  // Tick formatter (trục Y)
+  const numberFmt = (v) => {
+    try { return new Intl.NumberFormat("vi-VN").format(v); }
+    catch { return v; }
+  };
+
+  const modeVN = {
+    day: "ngày",
+    week: "tuần",
+    month: "tháng",
+    year: "năm",
+  };
+
+  const maxForMode = (m) => {
+    if (m === "day") return 365;
+    if (m === "week") return 104; // ~ 2 năm
+    if (m === "month") return 60; // ~ 5 năm
+    return 20; // year
+  };
 
   return (
     <div className="admin-root">
@@ -166,7 +180,7 @@ export default function AdminPage() {
           </div>
         )}
 
-        {/* Visits chart */}
+        {/* Visits chart (LineChart) */}
         <section className="admin-chart-section">
           <div className="chart-header">
             <h2>Lượt truy cập</h2>
@@ -175,6 +189,7 @@ export default function AdminPage() {
                 Phạm vi:&nbsp;
                 <select value={mode} onChange={(e) => setMode(e.target.value)}>
                   <option value="day">Theo ngày</option>
+                  <option value="week">Theo tuần</option>
                   <option value="month">Theo tháng</option>
                   <option value="year">Theo năm</option>
                 </select>
@@ -183,8 +198,8 @@ export default function AdminPage() {
                 Số mục:&nbsp;
                 <input
                   type="number"
-                  min={mode === "day" ? 1 : 1}
-                  max={mode === "day" ? 365 : mode === "month" ? 60 : 20}
+                  min={1}
+                  max={maxForMode(mode)}
                   value={limit}
                   onChange={(e) => setLimit(parseInt(e.target.value || "0", 10))}
                   style={{ width: 90 }}
@@ -195,33 +210,44 @@ export default function AdminPage() {
           </div>
 
           {chartStatus === "loading" && <div className="admin-loading">Đang tải biểu đồ...</div>}
-          {chartStatus === "error" && (
-            <div className="admin-error">
-              Không thể tải biểu đồ lượt truy cập.
-            </div>
-          )}
+          {chartStatus === "error" && <div className="admin-error">Không thể tải biểu đồ lượt truy cập.</div>}
 
           {chartStatus === "ok" && (
             <div className="chart-wrap">
-              <div className="chart-grid">
-                {bars.map((b) => (
-                  <div className="bar-col" key={b.label} title={`${b.label}: ${b.value}`}>
-                    <div className="bar" style={{ height: `${b.pct}%` }}>
-                      <span className="bar-value">{b.value}</span>
-                    </div>
-                    <div className="bar-label">{b.label}</div>
-                  </div>
-                ))}
+              <div className="chart-canvas" style={{ height: 320 }}>
+                <ResponsiveContainer width="100%" height="100%">
+                  <LineChart data={visitSeries} margin={{ top: 10, right: 20, bottom: 10, left: 0 }}>
+                    <CartesianGrid strokeDasharray="3 3" />
+                    <XAxis
+                      dataKey="label"
+                      tick={{ fontSize: 11 }}
+                      minTickGap={20}
+                      interval="preserveStartEnd"
+                    />
+                    <YAxis tickFormatter={numberFmt} width={60} />
+                    <Tooltip formatter={(v) => numberFmt(v)} labelClassName="tooltip-label" />
+                    <Legend />
+                    <Line
+                      type="monotone"
+                      dataKey="value"
+                      name={`Lượt truy cập (${modeVN[mode] || mode})`}
+                      stroke="#2f9e44"
+                      strokeWidth={2}
+                      dot={false}
+                      activeDot={{ r: 4 }}
+                    />
+                  </LineChart>
+                </ResponsiveContainer>
               </div>
               <div className="chart-footer">
-                <div>Giá trị lớn nhất: <strong>{maxValue}</strong></div>
+                <div>Điểm dữ liệu: <strong>{visitSeries.length}</strong></div>
                 <div>Chế độ: <code>{chart.mode}</code></div>
               </div>
             </div>
           )}
         </section>
 
-        {/* Favorites chart */}
+        {/* Favorites chart (BarChart) */}
         <section className="admin-chart-section">
           <div className="chart-header">
             <h2>Danh lam được yêu thích</h2>
@@ -242,26 +268,29 @@ export default function AdminPage() {
           </div>
 
           {favStatus === "loading" && <div className="admin-loading">Đang tải biểu đồ...</div>}
-          {favStatus === "error" && (
-            <div className="admin-error">
-              Không thể tải biểu đồ yêu thích.
-            </div>
-          )}
+          {favStatus === "error" && <div className="admin-error">Không thể tải biểu đồ yêu thích.</div>}
 
           {favStatus === "ok" && (
             <div className="chart-wrap">
-              <div className="chart-grid chart-grid--wide-labels">
-                {favBars.map((b) => (
-                  <div className="bar-col" key={b.label} title={`${b.label}: ${b.value}`}>
-                    <div className="bar bar--secondary" style={{ height: `${b.pct}%` }}>
-                      <span className="bar-value">{b.value}</span>
-                    </div>
-                    <div className="bar-label" title={b.label}>{b.label}</div>
-                  </div>
-                ))}
+              <div className="chart-canvas" style={{ height: 320 }}>
+                <ResponsiveContainer width="100%" height="100%">
+                  <BarChart data={favSeries} margin={{ top: 10, right: 20, bottom: 10, left: 0 }}>
+                    <CartesianGrid strokeDasharray="3 3" />
+                    <XAxis
+                      dataKey="label"
+                      tick={{ fontSize: 11 }}
+                      minTickGap={10}
+                      interval="preserveStartEnd"
+                    />
+                    <YAxis tickFormatter={numberFmt} width={60} />
+                    <Tooltip formatter={(v) => numberFmt(v)} />
+                    <Legend />
+                    <Bar dataKey="value" name="Lượt yêu thích" fill="#3b82f6" />
+                  </BarChart>
+                </ResponsiveContainer>
               </div>
               <div className="chart-footer">
-                <div>Giá trị lớn nhất: <strong>{favMax}</strong></div>
+                <div>Số danh mục hiển thị: <strong>{favSeries.length}</strong></div>
                 <div>Dữ liệu: <code>top {favLimit}</code></div>
               </div>
             </div>
