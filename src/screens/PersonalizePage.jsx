@@ -1,9 +1,9 @@
-// src/screens/PersonalizePage.jsx
 import React, { useContext, useEffect, useMemo, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../auth/AuthContext";
 import { apiFetch } from "../utils/apiFetch";
 import heritages from "../data/heritages.json";
+import tours from "../data/tours.json";
 import { resolveImageByName } from "../utils/images";
 import FallbackImg from "../images/VanHoa.jpg";
 import "../styles/PersonalizePage.css";
@@ -44,6 +44,8 @@ export default function PersonalizePage() {
   }); // grid | list
   const [busyId, setBusyId] = useState(""); // heritageId đang xử lý bỏ lưu
 
+  const navigate = useNavigate();
+
   const mapById = useMemo(() => {
     const m = new Map();
     heritages.forEach((h) => m.set(h.id, h));
@@ -80,7 +82,7 @@ export default function PersonalizePage() {
     return () => { mounted = false; };
   }, [user, accessToken, setAccessToken]);
 
-  // GA: Bắn event khi trang đã load xong (để có total_items)
+  // GA: view_personalize after loading
   useEffect(() => {
     if (!loading) {
       trackEvent("view_personalize", {
@@ -90,9 +92,9 @@ export default function PersonalizePage() {
       });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [loading]); // chạy một lần sau khi loading -> false
+  }, [loading]);
 
-  // Filter + sort
+  // Filter + sort of saved items
   const filtered = useMemo(() => {
     let list = items.map((it) => {
       const h = mapById.get(it.heritageId);
@@ -157,6 +159,69 @@ export default function PersonalizePage() {
     setViewMode(mode);
     try { localStorage.setItem("pz_view_mode", mode); } catch {}
   };
+
+  // ----------------- SUGGESTIONS LOGIC -----------------
+  const savedNames = useMemo(() => {
+    return filtered.map((it) => (it._name || "").toLowerCase()).filter(Boolean);
+  }, [filtered]);
+
+  const suggestions = useMemo(() => {
+    if (!savedNames.length) return [];
+
+    const tourScores = [];
+
+    const normalize = (s = "") => (s || "").toString().toLowerCase();
+
+    for (const t of tours || []) {
+      let score = 0;
+      const title = normalize(t.title);
+      const short = normalize(t.shortDesc || "");
+      const highlights = Array.isArray(t.highlights) ? t.highlights.map(normalize) : [];
+
+      for (const sName of savedNames) {
+        const matchedInHighlights = highlights.some((h) => h.includes(sName) || sName.includes(h));
+        const matchedInTitle = title.includes(sName) || sName.includes(title);
+        const matchedInShort = short.includes(sName) || sName.includes(short);
+
+        if (matchedInHighlights) score += 3;
+        else if (matchedInTitle) score += 2;
+        else if (matchedInShort) score += 1;
+      }
+
+      if (score > 0) {
+        tourScores.push({ tour: t, score });
+      }
+    }
+
+    tourScores.sort((a, b) => {
+      if (b.score !== a.score) return b.score - a.score;
+      return (a.tour.title || "").localeCompare(b.tour.title || "");
+    });
+
+    return tourScores.map((x) => ({ ...x.tour, _matchScore: x.score })).slice(0, 8);
+  }, [savedNames]);
+
+  useEffect(() => {
+    if (suggestions.length > 0) {
+      trackEvent("view_suggested_tours", {
+        logged_in: !!user,
+        suggested_count: suggestions.length,
+        traffic_source: getTrafficSource(),
+      });
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [suggestions.length]);
+
+  const onClickSuggest = (tourId, tourTitle) => {
+    trackEvent("click_suggested_tour", {
+      tour_id: tourId,
+      tour_title: tourTitle,
+      traffic_source: getTrafficSource(),
+    });
+    navigate(`/tours/${tourId}`);
+  };
+
+  // -----------------------------------------------------
 
   if (!user) {
     return (
@@ -236,7 +301,7 @@ export default function PersonalizePage() {
         </div>
       </div>
 
-      {/* Content */}
+      {/* Content (saved items) */}
       {loading ? (
         <div className={viewMode === "grid" ? "pz-grid" : "pz-list"}>
           {Array.from({ length: viewMode === "grid" ? 8 : 6 }).map((_, i) => (
@@ -298,7 +363,6 @@ export default function PersonalizePage() {
           ))}
         </div>
       ) : (
-        // ===== List view =====
         <div className="pz-list">
           {filtered.map((it) => (
             <div key={it.heritageId} className="pz-card pz-list-item">
@@ -341,6 +405,50 @@ export default function PersonalizePage() {
             </div>
           ))}
         </div>
+      )}
+
+      {/* --- SUGGESTIONS: moved BELOW saved list (new placement) --- */}
+      {suggestions.length > 0 && (
+        <section className="pz-suggestions pz-suggestions-below">
+          <div className="pz-sugg-head">
+            <h2>Gợi ý tour dựa trên sở thích của bạn</h2>
+            <div className="pz-sugg-actions">
+              <Link to="/tours" className="btn outline">Xem tất cả tour</Link>
+            </div>
+          </div>
+
+          <div className="pz-sugg-grid pz-sugg-grid-modern">
+            {suggestions.map((t) => {
+              const img = resolveImageByName(t.images?.[0] || t.image, FallbackImg);
+              return (
+                <article key={t.id} className="pz-sugg-card modern">
+                  <div
+                    className="pz-sugg-media"
+                    role="button"
+                    tabIndex={0}
+                    onClick={() => onClickSuggest(t.id, t.title)}
+                    onKeyDown={(e) => { if (e.key === "Enter") onClickSuggest(t.id, t.title); }}
+                    style={{ backgroundImage: `url(${img})` }}
+                    aria-label={t.title}
+                  />
+                  <div className="pz-sugg-body">
+                    <div className="pz-sugg-top">
+                      <div className="pz-sugg-title">{t.title}</div>
+                      <div className="pz-sugg-score">+{t._matchScore}</div>
+                    </div>
+
+                    <div className="pz-sugg-sub">{t.shortDesc || t.highlights?.[0] || ""}</div>
+
+                    <div className="pz-sugg-actions">
+                      <button className="btn primary btn-sm" onClick={() => onClickSuggest(t.id, t.title)}>Xem chi tiết</button>
+                      <Link className="btn outline btn-sm" to={`/tours/${t.id}`}>Đặt ngay</Link>
+                    </div>
+                  </div>
+                </article>
+              );
+            })}
+          </div>
+        </section>
       )}
     </div>
   );

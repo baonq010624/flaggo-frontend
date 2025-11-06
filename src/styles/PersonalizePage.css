@@ -1,4 +1,3 @@
-/* src/styles/PersonalizePage.css */
 :root{
   --accent:#2f9e44;
   --ink:#071028;
@@ -6,6 +5,7 @@
   --bg:#f6f8fa;
   --card:#ffffff;
   --danger:#ef4444;
+  --glass: rgba(255,255,255,0.85);
 }
 
 .pz-root{
@@ -53,7 +53,7 @@
   position: sticky;
   top: 0;
   z-index: 3;
-  background: linear-gradient(180deg, rgba(246,248,250,.85) 0%, rgba(246,248,250,.95) 100%);
+  background: linear-gradient(180deg, rgba(246,248,250,.92) 0%, rgba(246,248,250,.96) 100%);
   backdrop-filter: blur(6px);
   border-top: 1px solid rgba(6,24,40,.04);
   border-bottom: 1px solid rgba(6,24,40,.06);
@@ -450,4 +450,114 @@
     min-height: 180px;
     max-height: 220px;
   }
+}
+
+/* ======= Suggestions (moved below saved list) ======= */
+.pz-suggestions {
+  max-width: 1220px;
+  margin: 20px auto 40px;
+  padding: 0 8px;
+}
+.pz-sugg-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+.pz-sugg-head h2 {
+  margin: 0;
+  font-size: 1.2rem;
+  letter-spacing: -0.2px;
+  color: var(--ink);
+}
+.pz-sugg-grid-modern {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 14px;
+}
+
+/* modern card */
+.pz-sugg-card.modern {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: linear-gradient(180deg, var(--glass), #fff);
+  border: 1px solid rgba(6,24,40,.06);
+  border-radius: 14px;
+  padding: 0;
+  overflow: hidden;
+  transition: transform .14s ease, box-shadow .14s ease;
+  box-shadow: 0 10px 30px rgba(8,24,40,0.06);
+}
+.pz-sugg-card.modern:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 48px rgba(8,24,40,0.10);
+}
+
+/* media area */
+.pz-sugg-media {
+  width: 100%;
+  height: 170px;
+  background-size: cover;
+  background-position: center;
+  cursor: pointer;
+  display: block;
+  border-bottom: 1px solid rgba(6,24,40,.04);
+}
+
+/* body */
+.pz-sugg-body {
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.pz-sugg-top {
+  display:flex;
+  align-items:flex-start;
+  justify-content: space-between;
+  gap: 8px;
+}
+.pz-sugg-title {
+  font-weight: 800;
+  font-size: 1rem;
+  line-height: 1.25;
+  color: var(--ink);
+}
+.pz-sugg-score {
+  background: rgba(47,158,68,0.12);
+  color: var(--accent);
+  font-weight: 800;
+  padding: 6px 8px;
+  border-radius: 999px;
+  font-size: 0.86rem;
+  white-space: nowrap;
+  align-self: flex-start;
+}
+.pz-sugg-sub {
+  color: var(--muted);
+  font-size: 0.94rem;
+  line-height: 1.35;
+  min-height: 2.7em;
+  overflow: hidden;
+}
+
+/* actions */
+.pz-sugg-actions {
+  display:flex;
+  gap:10px;
+  margin-top: 6px;
+}
+.pz-sugg-actions .btn { padding: 8px 12px; font-weight:700; }
+
+/* compact mode on small screens */
+@media (max-width: 980px) {
+  .pz-sugg-grid-modern { grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); }
+  .pz-sugg-media { height: 150px; }
+}
+@media (max-width: 560px) {
+  .pz-sugg-grid-modern { grid-template-columns: 1fr; }
+  .pz-sugg-media { height: 140px; }
+  .pz-sugg-sub { min-height: 2.2em; }
 }

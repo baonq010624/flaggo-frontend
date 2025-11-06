@@ -4,16 +4,6 @@
     "code": "CT01.25",
     "title": "TOUR GHÉP KHÁCH LẺ: NINH KIỀU - CHỢ NỔI",
     "shortDesc": "Tour 3 tiếng: khám phá chợ nổi Cái Răng, lò hủ tiếu, lò thốt nốt. Khởi hành hàng ngày từ Bến Ninh Kiều.",
-    "description": "Khởi hành từ Bến Ninh Kiều, trải nghiệm chợ nổi Cái Răng, tham quan lò hủ tiếu, lò thốt nốt và thưởng thức đặc sản địa phương.",
-    "itinerary": [
-      "05:00 hoặc 05:30: HDV đón khách tại cuối đường Võ Văn Tần (giáp Hai Bà Trưng), phường Tân An, Ninh Kiều, Cần Thơ. Lên tàu du lịch.",
-      "Tham quan chợ nổi Cái Răng: tìm hiểu văn hóa họp chợ trên sông, thưởng thức bún lắc (chi phí tự túc).",
-      "Thăm Lò Hủ Tiếu: xem quy trình làm Hủ Tiếu, thử Pizza Hủ Tiếu và mua đặc sản.",
-      "Thăm Lò Thốt Nốt: tìm hiểu cây thốt nốt, thử bánh thốt nốt và mua sản phẩm địa phương.",
-      "Kết thúc: tàu đưa khách về điểm đón ban đầu, HDV chia tay."
-    ],
-    "price": "199000",
-    "priceText": "119.000 VND",
     "image": "BenNK.jpg",
     "images": ["CT01_25.png"],
     "duration": "03 tiếng",
@@ -21,23 +11,10 @@
     "departure": "Hàng Ngày",
     "vehicle": "Tàu du lịch",
     "capacity": 20,
-    "included": [
-      "Tàu du lịch tham quan chợ nổi Cái Răng",
-      "Hướng dẫn viên tiếng Việt",
-      "Bảo hiểm du lịch (mức bồi thường tối đa 60.000.000 VND/vụ, khi cung cấp danh sách đoàn)"
-    ],
-    "notIncluded": [
-      "Chi phí ăn sáng tại chợ nổi",
-      "Xe ô tô đưa đón",
-      "Các chi phí cá nhân khác"
-    ],
-    "childPolicy": "Dưới 07 tuổi: miễn phí (chi phí phát sinh bố mẹ tự túc). Trẻ từ 07 tuổi trở lên: 100% giá tour như người lớn.",
-    "cancellation": "Hủy trước 07 ngày: phí 50% giá tour. Hủy trong vòng 07 ngày: phí 100% giá tour. Thời gian hủy tính theo ngày làm việc (không tính T7, CN, ngày lễ).",
+    "price": "199000",
+    "priceText": "119.000 VND",
     "contact": {
       "company": "V-SOUTH TRAVEL",
-      "phone": "0946840606",
-      "address": "600 Nguyễn Văn Cừ, Phường An Bình, Quận Ninh Kiều, TP Cần Thơ",
-      "email": "vsouth1605@gmail.com",
       "fanpage": "https://www.facebook.com/profile.php?id=61579976664306"
     },
     "highlights": ["Chợ nổi Cái Răng", "Lò Hủ Tiếu", "Lò Thốt Nốt"]
@@ -47,15 +24,6 @@
     "code": "CT02.25",
     "title": "TOUR GHÉP KHÁCH LẺ: DU LỊCH CỘNG ĐỒNG CỒN SƠN",
     "shortDesc": "Tour nửa ngày: trải nghiệm làng cá bè, vườn trái cây, làm bánh dân gian tại Cồn Sơn.",
-    "description": "Khám phá đời sống làng bè, trải nghiệm các hoạt động du lịch cộng đồng tại Cồn Sơn, thưởng thức chả cá và các món địa phương.",
-    "itinerary": [
-      "08:00 hoặc 13:30: HDV đón quý khách tại bến tàu du lịch Cồn Sơn (bến phà Cô Bắc).",
-      "Tham quan làng cá bè: tìm hiểu loài cá đặc biệt, tham gia cho cá ăn, chụp hình và thưởng thức chả cá thác lác.",
-      "Đến Cồn Sơn: đón khách bằng nước mát đặc trưng, tản bộ vườn trái cây và tham gia làm bánh dân gian.",
-      "11:30 hoặc 17:00: Tàu đưa khách về bến, kết thúc chương trình."
-    ],
-    "price": "385000",
-    "priceText": "385.000 VND",
     "image": "ConSon.jpg",
     "images": ["CT02_25.png"],
     "duration": "1/2 ngày",
@@ -63,21 +31,10 @@
     "departure": "Theo lịch (sáng / chiều)",
     "vehicle": "Tàu du lịch / đò",
     "capacity": 30,
-    "included": [
-      "Đò ngang tại Cồn Sơn",
-      "Hướng dẫn viên tiếng Việt",
-      "Bảo hiểm du lịch (mức bồi thường tối đa 60.000.000 VND khi cung cấp danh sách đoàn)",
-      "Vé tham quan các điểm trong chương trình",
-      "Thưởng thức chả cá thác lác, trải nghiệm làm bánh"
-    ],
-    "notIncluded": ["Các chi phí cá nhân ngoài chương trình", "Thuế VAT"],
-    "childPolicy": "Dưới 05 tuổi: miễn phí. Trẻ 05–09 tuổi: 75% giá tour. Trẻ từ 10 tuổi trở lên: 100% giá tour.",
-    "cancellation": "Hủy trước 07 ngày: phí 50% giá tour. Hủy trong vòng 07 ngày: phí 100% giá tour.",
+    "price": "385000",
+    "priceText": "385.000 VND",
     "contact": {
       "company": "V-SOUTH TRAVEL",
-      "phone": "0946840606",
-      "address": "600 Nguyễn Văn Cừ, Phường An Bình, Quận Ninh Kiều, TP Cần Thơ",
-      "email": "vsouth1605@gmail.com",
       "fanpage": "https://www.facebook.com/profile.php?id=61579976664306"
     },
     "highlights": ["Làng cá bè", "Vườn trái cây", "Làm bánh dân gian"]
@@ -85,41 +42,19 @@
   {
     "id": "mthn01-25",
     "code": "MTHN01.25",
-    "title": "CẦN THƠ - AN GIANG: TRẢI NGHIỆM MÙA NƯỚC NỔI MIỀN TÂY (1 NGÀY)",
-    "shortDesc": "Tour 1 ngày mùa nước nổi (tháng 09-11/2025): Tri Tôn - Châu Đốc - Miếu Bà Chúa Xứ - Núi Sam.",
-    "description": "Khởi hành từ Cần Thơ, khám phá Tri Tôn mùa nước nổi: bơi xuồng, đổ dớn bắt cá, hái bông điên điển; tham quan Châu Đốc, Miếu Bà Chúa Xứ và Đền Phật Ngọc.",
-    "itinerary": [
-      "07:00: Khởi hành từ Cần Thơ theo QL91 đi Tri Tôn (An Giang).",
-      "10:00: Đến Tri Tôn: mặc áo bà ba, bơi xuồng trên cánh đồng mùa nước nổi, đổ dớn bắt cá, hái bông điên điển, check-in 'con đường vô cực'. Tặng 01 ly nước thốt nốt + 1 phần cà na ngâm.",
-      "Trưa: Ăn trưa tại Châu Đốc.",
-      "Tham quan Miếu Bà Chúa Xứ và Núi Sam: Đền Phật Ngọc, Bệ đá sa thạch, ngắm cảnh biên giới. Chiều về Cần Thơ, kết thúc tour."
-    ],
-    "season": "Tháng 09, 10, 11/2025",
-    "price": "199000",
-    "priceText": "1.199.000 VND",
+    "title": "CẦN THƠ - AN GIANG: TRẢI NGHIỆM MÙA NƯỚC NỔI (1 NGÀY)",
+    "shortDesc": "Tour 1 ngày mùa nước nổi: Tri Tôn - Châu Đốc - Miếu Bà Chúa Xứ - Núi Sam.",
     "image": "ChoNoi.jpg",
-    "images": ["MTHN01_25.png","MTHN01_25_1.png"],
+    "images": ["MTHN01_25.png", "MTHN01_25_1.png"],
     "duration": "1 ngày",
     "pickup": "Khách sạn trung tâm",
     "departure": "Hàng Ngày (mùa nước nổi)",
     "vehicle": "Xe ô tô đời mới",
     "capacity": 40,
-    "included": [
-      "Xe đưa đón suốt tuyến",
-      "Ăn trưa (160.000 VND/suất)",
-      "Vé tham quan theo chương trình",
-      "Trang phục áo bà ba cho trải nghiệm",
-      "Bảo hiểm du lịch (60.000.000 VND)",
-      "Hướng dẫn viên"
-    ],
-    "notIncluded": ["Chi phí cá nhân", "Thuế VAT"],
-    "childPolicy": "Dưới 05 tuổi: miễn phí. 06–09 tuổi: 75% giá tour. Từ 10 tuổi: 100% giá tour.",
-    "cancellation": "Hủy trước 07 ngày: phí 50%. Hủy trong 07 ngày: phí 100%.",
+    "price": "199000",
+    "priceText": "1.199.000 VND",
     "contact": {
       "company": "V-SOUTH TRAVEL",
-      "phone": "0946840606",
-      "address": "600 Nguyễn Văn Cừ, Phường An Bình, Quận Ninh Kiều, TP Cần Thơ",
-      "email": "vsouth1605@gmail.com",
       "fanpage": "https://www.facebook.com/profile.php?id=61579976664306"
     },
     "highlights": ["Mùa nước nổi", "Trải nghiệm nông dân", "Miếu Bà Chúa Xứ"]
@@ -128,50 +63,17 @@
     "id": "mtht02-25",
     "code": "MTHT02.25",
     "title": "CẦN THƠ – CÀ MAU – AN GIANG (3N2Đ)",
-    "shortDesc": "Tour 3 ngày 2 đêm khám phá Soc Trang, Bạc Liêu, Cà Mau và trải nghiệm mùa nước nổi An Giang.",
-    "description": "Hành trình 3N2Đ từ Cần Thơ: tham quan chùa Chén Kiểu, Nhà Công Tử Bạc Liêu, Đất Mũi Cà Mau, Tri Tôn mùa nước nổi và Miếu Bà Chúa Xứ.",
-    "itinerary": [
-      "Ngày 1: Đón khách tại sân bay/khách sạn, đi Sóc Trăng (Chùa Chén Kiểu, Chùa Som Rong), Bạc Liêu (Nhà Công Tử, Khu tưởng niệm Cao Văn Lầu), đến Cà Mau nhận phòng.",
-      "Ngày 2: Khởi hành đi Đất Mũi: Vườn quốc gia Mũi Cà Mau, cột mốc GPS 0001, tham quan rừng ngập mặn, ăn trưa, về Cần Thơ buổi chiều.",
-      "Ngày 3: Khởi hành đi Tri Tôn (An Giang): trải nghiệm mùa nước nổi, lên Châu Đốc tham quan Miếu Bà Chúa Xứ, về Cần Thơ – trả khách."
-    ],
-    "price": {
-      "3star_adult": "3290000",
-      "3star_child_5_10": "1645000",
-      "child_under_5": "0",
-      "single_room_supplement": "800000"
-    },
-    "priceText": "Từ 3.619.000 VND",
+    "shortDesc": "Tour 3 ngày 2 đêm khám phá Sóc Trăng, Bạc Liêu, Cà Mau và Tri Tôn mùa nước nổi.",
     "image": "ChuaSomRong.jpg",
-    "images": ["MTHT02_25.png","MTHT02_25_1.png"],
+    "images": ["MTHT02_25.png", "MTHT02_25_1.png"],
     "duration": "03 ngày 02 đêm",
     "pickup": "Sân bay hoặc khách sạn trung tâm",
     "departure": "Thứ 6 hàng tuần",
     "vehicle": "Xe ô tô đời mới",
     "capacity": 45,
-    "included": [
-      "Xe vận chuyển theo chương trình",
-      "Khách sạn tiêu chuẩn 3 sao",
-      "Ăn theo chương trình (02 sáng + 03 chính)",
-      "Vé tham quan theo chương trình",
-      "Hướng dẫn viên",
-      "Nước uống và khăn ướt (01 chai + 01 khăn/ngày)",
-      "Bảo hiểm du lịch (60.000.000 VND)"
-    ],
-    "notIncluded": [
-      "Các bữa ăn ngoài chương trình",
-      "Chi phí cá nhân, vui chơi giải trí",
-      "Tiền tip hướng dẫn viên/tài xế",
-      "Thuế VAT",
-      "Phụ thu phòng đơn"
-    ],
-    "childPolicy": "Từ 11 tuổi trở lên: tính vé người lớn. 5–10 tuổi: 50% giá tour. Dưới 5 tuổi: miễn phí (phụ thu nếu có giường riêng).",
-    "cancellation": "Hủy trước 07 ngày: phí 50%. Hủy trong 07 ngày: phí 100%.",
+    "priceText": "Từ 3.619.000 VND",
     "contact": {
       "company": "V-SOUTH TRAVEL",
-      "phone": "0946840606",
-      "address": "600 Nguyễn Văn Cừ, Phường An Bình, Quận Ninh Kiều, TP Cần Thơ",
-      "email": "vsouth1605@gmail.com",
       "fanpage": "https://www.facebook.com/profile.php?id=61579976664306"
     },
     "highlights": ["Đất Mũi", "Nhà Công Tử Bạc Liêu", "Mùa nước nổi Tri Tôn"]
@@ -180,48 +82,17 @@
     "id": "mtht01-25",
     "code": "MTHT.01.25",
     "title": "CẦN THƠ - CÀ MAU (2N1Đ)",
-    "shortDesc": "Tour 2 ngày 1 đêm: Cà Mau - Đất Mũi - Sóc Trăng - Bạc Liêu. Khởi hành thứ 6 hàng tuần.",
-    "description": "Hành trình về cực Nam Tổ quốc: Chùa Chén Kiểu, Nhà Công Tử Bạc Liêu, Vườn quốc gia Mũi Cà Mau và cột mốc GPS 0001.",
-    "itinerary": [
-      "Ngày 1: Đón khách, đi Sóc Trăng (Chùa Chén Kiểu, Chùa Som Rong), Bạc Liêu (Nhà Công Tử, khu tưởng niệm Cao Văn Lầu), đến Cà Mau nhận phòng.",
-      "Ngày 2: Tham quan Đất Mũi, Vườn quốc gia Mũi Cà Mau, ăn trưa, khởi hành về Cần Thơ trả khách."
-    ],
-    "price": {
-      "3star_adult": "1990000",
-      "3star_child_5_10": "995000",
-      "child_under_5": "0",
-      "single_room_supplement": "400000"
-    },
-    "priceText": "2.189.000 VND",
+    "shortDesc": "Tour 2 ngày 1 đêm: Cà Mau - Đất Mũi - Sóc Trăng - Bạc Liêu.",
     "image": "ChuaDoi.jpg",
-    "images": ["MTHT01_25.png","MTHT01_25_1.png"],
+    "images": ["MTHT01_25.png", "MTHT01_25_1.png"],
     "duration": "02 ngày 01 đêm",
     "pickup": "Sân bay hoặc khách sạn trung tâm",
     "departure": "Thứ 6 hàng tuần",
     "vehicle": "Xe ô tô đời mới",
     "capacity": 40,
-    "included": [
-      "Xe vận chuyển theo chương trình",
-      "Khách sạn 3 sao",
-      "Ăn theo chương trình",
-      "Vé tham quan",
-      "Hướng dẫn viên",
-      "Nước uống và khăn ướt",
-      "Bảo hiểm 60.000.000 VND"
-    ],
-    "notIncluded": [
-      "Các bữa ăn ngoài chương trình",
-      "Chi phí cá nhân",
-      "Tiền tip",
-      "Thuế VAT"
-    ],
-    "childPolicy": "Từ 11 tuổi: vé người lớn. 5–10 tuổi: 50% giá tour. Dưới 5 tuổi: miễn phí (bố mẹ tự lo).",
-    "cancellation": "Hủy trước 07 ngày: 50% phí. Hủy trong 07 ngày: 100% phí.",
+    "priceText": "2.189.000 VND",
     "contact": {
       "company": "V-SOUTH TRAVEL",
-      "phone": "0946840606",
-      "address": "600 Nguyễn Văn Cừ, Phường An Bình, Quận Ninh Kiều, TP Cần Thơ",
-      "email": "vsouth1605@gmail.com",
       "fanpage": "https://www.facebook.com/profile.php?id=61579976664306"
     },
     "highlights": ["Đất Mũi", "Chùa Khmer Sóc Trăng", "Nhà Công Tử Bạc Liêu"]

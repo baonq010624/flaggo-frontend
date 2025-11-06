@@ -4,7 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import "../styles/BookingRedirect.css";
 import toursData from "../data/tours.json";
 
-const COUNTDOWN = 15; // giây
+const COUNTDOWN = 40; // giây
 
 function extractPageHandle(fanpageUrl) {
   try {
